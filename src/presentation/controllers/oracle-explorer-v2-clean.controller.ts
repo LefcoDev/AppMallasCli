@@ -231,7 +231,7 @@ export class OracleExplorerControllerV2 {
 
       if (shouldProcess) {
         console.log("\n🚀 PROCESANDO ARCHIVOS CON MAPEO CONFIGURADO...");
-        console.log("═".repeat(60));        // Ejecutar el procesamiento con el mapeo configurado
+        console.log("═".repeat(60)); // Ejecutar el procesamiento con el mapeo configurado
         const options = {
           tableName,
           filePatterns: selectedFiles,

@@ -1,6 +1,7 @@
 # Git Commands Reference
 
 ## Remote Management
+
 ```bash
 # Ver todos los remotes actuales
 git remote -v
@@ -16,6 +17,7 @@ git remote set-url origin <nueva-url>
 ```
 
 ## Branch Management
+
 ```bash
 # Ver todas las branches
 git branch
@@ -39,6 +41,7 @@ git checkout -b <nueva-branch> <branch-origen>
 ```
 
 ## Basic Commands
+
 ```bash
 # Ver estado actual
 git status
@@ -58,6 +61,7 @@ git push
 ```
 
 ## Verification
+
 ```bash
 # Ver branch actual (marcada con *)
 git branch

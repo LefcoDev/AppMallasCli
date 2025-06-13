@@ -905,7 +905,8 @@ export class OracleExplorerServiceImpl implements OracleExplorerService {
           `⚠️ Hoja "${sheetName}" no encontrada en ${fileInfo.fileName}`
         );
         continue;
-      }      const sheetResult = await this.processExcelSheet(
+      }
+      const sheetResult = await this.processExcelSheet(
         workbook,
         sheetName,
         columnMapping,
@@ -914,7 +915,8 @@ export class OracleExplorerServiceImpl implements OracleExplorerService {
       );
       result.sheets.push(sheetResult);
     }
-  }  private async processExcelSheet(
+  }
+  private async processExcelSheet(
     workbook: XLSX.WorkBook,
     sheetName: string,
     columnMapping: ColumnMapping,
@@ -976,7 +978,8 @@ export class OracleExplorerServiceImpl implements OracleExplorerService {
         return cell.toString().trim();
       });
 
-      try {        const mappedRecord = await this.mapRowToRecordWithDebug(
+      try {
+        const mappedRecord = await this.mapRowToRecordWithDebug(
           normalizedRow,
           headers,
           columnMapping,
@@ -1356,12 +1359,14 @@ export class OracleExplorerServiceImpl implements OracleExplorerService {
     }
 
     return specialValue;
-  }  private async processValueForColumnWithDebug(
+  }
+  private async processValueForColumnWithDebug(
     value: any,
     column: TableColumn,
     debugLogger: DebugLogger,
-    formatOptions?: { format: 'string' | 'number' | 'auto' }
-  ): Promise<any> {    await debugLogger.log(
+    formatOptions?: { format: "string" | "number" | "auto" }
+  ): Promise<any> {
+    await debugLogger.log(
       `🔧 processValueForColumn: entrada="${value}", tipo="${typeof value}", columna="${
         column.columnName
       }", dataType="${column.dataType}"`
@@ -1377,15 +1382,19 @@ export class OracleExplorerServiceImpl implements OracleExplorerService {
     }
 
     // 🎯 NUEVA LÓGICA: Aplicar formato especificado por el usuario
-    if (formatOptions && formatOptions.format !== 'auto') {
-      if (formatOptions.format === 'string') {
+    if (formatOptions && formatOptions.format !== "auto") {
+      if (formatOptions.format === "string") {
         const forcedString = String(value);
-        await debugLogger.log(`🎯 FORZADO COMO STRING: "${forcedString}" (formato: ${formatOptions.format})`);
+        await debugLogger.log(
+          `🎯 FORZADO COMO STRING: "${forcedString}" (formato: ${formatOptions.format})`
+        );
         return forcedString;
-      } else if (formatOptions.format === 'number') {
+      } else if (formatOptions.format === "number") {
         const numValue = Number(value);
         const forcedNumber = isNaN(numValue) ? null : numValue;
-        await debugLogger.log(`🎯 FORZADO COMO NUMBER: ${forcedNumber} (formato: ${formatOptions.format}, original: "${value}")`);
+        await debugLogger.log(
+          `🎯 FORZADO COMO NUMBER: ${forcedNumber} (formato: ${formatOptions.format}, original: "${value}")`
+        );
         return forcedNumber;
       }
     }
@@ -1639,7 +1648,8 @@ export class OracleExplorerServiceImpl implements OracleExplorerService {
 
     // Para cualquier otro tipo, convertir a string y escapar
     return `'${String(value).replace(/'/g, "''")}'`;
-  }  private async mapRowToRecordWithDebug(
+  }
+  private async mapRowToRecordWithDebug(
     row: any[],
     headers: string[],
     columnMapping: ColumnMapping,
@@ -1648,13 +1658,16 @@ export class OracleExplorerServiceImpl implements OracleExplorerService {
   ): Promise<Record<string, any> | null> {
     const debugLogger = DebugLogger.getInstance();
     const record: Record<string, any> = {};
-    let hasValidData = false;    await debugLogger.logSection(`PROCESANDO NUEVA FILA`);
+    let hasValidData = false;
+    await debugLogger.logSection(`PROCESANDO NUEVA FILA`);
 
     // 🔍 DEBUG: Mostrar opciones de formato disponibles
     if (valueFormatOptions) {
       await debugLogger.log(`📋 Opciones de formato disponibles:`);
       Object.entries(valueFormatOptions).forEach(async ([column, option]) => {
-        await debugLogger.log(`   ${column}: source="${option.source}", format="${option.format}"`);
+        await debugLogger.log(
+          `   ${column}: source="${option.source}", format="${option.format}"`
+        );
       });
     } else {
       await debugLogger.log(`⚠️ No hay opciones de formato disponibles`);
@@ -1684,11 +1697,14 @@ export class OracleExplorerServiceImpl implements OracleExplorerService {
     // Mapear usando reverseMapping (Oracle Column ← Source)
     for (const oracleColumn of Object.keys(reverseMapping)) {
       const source = reverseMapping[oracleColumn];
-      await debugLogger.logSubSection(`Procesando ${oracleColumn} ← ${source}`);      if (source === "NULL") {
+      await debugLogger.logSubSection(`Procesando ${oracleColumn} ← ${source}`);
+      if (source === "NULL") {
         // Obtener opciones de formato para NULL
         const formatOptions = valueFormatOptions?.[oracleColumn];
-        const column = tableStructure.find(col => col.columnName === oracleColumn);
-        
+        const column = tableStructure.find(
+          (col) => col.columnName === oracleColumn
+        );
+
         if (column) {
           const processedValue = await this.processValueForColumnWithDebug(
             null,
@@ -1697,7 +1713,9 @@ export class OracleExplorerServiceImpl implements OracleExplorerService {
             formatOptions
           );
           record[oracleColumn] = processedValue;
-          await debugLogger.log(`✅ ${oracleColumn} = NULL (procesado como: ${processedValue})`);
+          await debugLogger.log(
+            `✅ ${oracleColumn} = NULL (procesado como: ${processedValue})`
+          );
         } else {
           record[oracleColumn] = null;
           await debugLogger.log(`✅ ${oracleColumn} = NULL`);
@@ -1710,8 +1728,10 @@ export class OracleExplorerServiceImpl implements OracleExplorerService {
       } else if (source.startsWith("CUSTOM:")) {
         const customValue = source.replace("CUSTOM:", "");
         const formatOptions = valueFormatOptions?.[oracleColumn];
-        const column = tableStructure.find(col => col.columnName === oracleColumn);
-        
+        const column = tableStructure.find(
+          (col) => col.columnName === oracleColumn
+        );
+
         if (column) {
           const processedValue = await this.processValueForColumnWithDebug(
             customValue,
@@ -1720,8 +1740,15 @@ export class OracleExplorerServiceImpl implements OracleExplorerService {
             formatOptions
           );
           record[oracleColumn] = processedValue;
-          if (processedValue !== null && processedValue !== undefined && processedValue !== "") hasValidData = true;
-          await debugLogger.log(`✅ ${oracleColumn} = CUSTOM:${processedValue} (formato aplicado)`);
+          if (
+            processedValue !== null &&
+            processedValue !== undefined &&
+            processedValue !== ""
+          )
+            hasValidData = true;
+          await debugLogger.log(
+            `✅ ${oracleColumn} = CUSTOM:${processedValue} (formato aplicado)`
+          );
         } else {
           record[oracleColumn] = customValue;
           if (customValue.trim() !== "") hasValidData = true;
@@ -1730,8 +1757,10 @@ export class OracleExplorerServiceImpl implements OracleExplorerService {
       } else if (source.startsWith("SEQUENCE:")) {
         const sequenceValue = this.processSpecialValue(source);
         const formatOptions = valueFormatOptions?.[oracleColumn];
-        const column = tableStructure.find(col => col.columnName === oracleColumn);
-        
+        const column = tableStructure.find(
+          (col) => col.columnName === oracleColumn
+        );
+
         if (column) {
           const processedValue = await this.processValueForColumnWithDebug(
             sequenceValue,
@@ -1741,11 +1770,15 @@ export class OracleExplorerServiceImpl implements OracleExplorerService {
           );
           record[oracleColumn] = processedValue;
           hasValidData = true;
-          await debugLogger.log(`✅ ${oracleColumn} = SEQUENCE:${processedValue} (formato aplicado desde: ${sequenceValue})`);
+          await debugLogger.log(
+            `✅ ${oracleColumn} = SEQUENCE:${processedValue} (formato aplicado desde: ${sequenceValue})`
+          );
         } else {
           record[oracleColumn] = sequenceValue;
           hasValidData = true;
-          await debugLogger.log(`✅ ${oracleColumn} = SEQUENCE:${sequenceValue}`);
+          await debugLogger.log(
+            `✅ ${oracleColumn} = SEQUENCE:${sequenceValue}`
+          );
         }
       } else {
         // Es un header del archivo
@@ -1771,9 +1804,9 @@ export class OracleExplorerServiceImpl implements OracleExplorerService {
             await debugLogger.log(`  Nullable: ${column.nullable}`);
             await debugLogger.log(
               `  Valor a procesar: "${value}" (tipo: ${typeof value})`
-            );            // Obtener opciones de formato si están disponibles
+            ); // Obtener opciones de formato si están disponibles
             const formatOptions = valueFormatOptions?.[oracleColumn];
-            
+
             const processedValue = await this.processValueForColumnWithDebug(
               value,
               column,
