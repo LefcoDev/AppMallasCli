@@ -1,0 +1,115 @@
+# Dependencias
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Carpetas específicas del proyecto
+data/
+dist/
+documentation/
+output/
+zipmigracion/
+
+# Archivos de entorno
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Archivos de runtime
+lib-cov
+coverage
+.nyc_output
+.grunt
+bower_components
+.lock-wscript
+build/Release
+
+# Dependency directories
+jspm_packages/
+
+# Archivos de TypeScript
+*.tsbuildinfo
+
+# Archivos de cache
+.npm
+.eslintcache
+.stylelintcache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Archivos de opcional npm
+.npm
+
+# Archivos de yarn
+.yarn-integrity
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# Archivos de microbundle
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Archivos de Next.js
+.next/
+out/
+
+# Archivos de Nuxt.js
+.nuxt
+dist
+
+# Archivos de Gatsby
+.cache/
+public
+
+# Archivos de Vuepress
+.vuepress/dist
+
+# Archivos de Serverless
+.serverless/
+
+# Archivos de FuseBox
+.fusebox/
+
+# Archivos de DynamoDB Local
+.dynamodb/
+
+# TernJS port file
+.tern-port
+
+# Archivos de Stores
+.DS_Store
+Thumbs.db
+
+# Archivos de IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Archivos temporales
+*.tmp
+*.temp

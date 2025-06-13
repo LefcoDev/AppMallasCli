@@ -1,0 +1,1003 @@
+🔗 Procesando GOREMAL_ACTIVITY_DATE ← SYSDATE
+   ✅ GOREMAL_ACTIVITY_DATE = SYSDATE
+🔗 Procesando GOREMAL_USER_ID ← CICLO
+   🔍 Buscando header "CICLO" en posición 5
+   📋 Valor encontrado en posición [5]: "40"
+   ✅ GOREMAL_USER_ID = "40" (desde header "CICLO")
+🔗 Procesando GOREMAL_COMMENT ← CREDITOS
+   🔍 Buscando header "CREDITOS" en posición 6
+   📋 Valor encontrado en posición [6]: "3"
+   ✅ GOREMAL_COMMENT = "3" (desde header "CREDITOS")
+🔗 Procesando GOREMAL_DISP_WEB_IND ← CURSO
+   🔍 Buscando header "CURSO" en posición 2
+   📋 Valor encontrado en posición [2]: "01210"
+   ✅ GOREMAL_DISP_WEB_IND = "01210" (desde header "CURSO")
+🔗 Procesando GOREMAL_DATA_ORIGIN ← MATERIA
+   🔍 Buscando header "MATERIA" en posición 1
+   📋 Valor encontrado en posición [1]: "PROG"
+   ✅ GOREMAL_DATA_ORIGIN = "PROG" (desde header "MATERIA")
+🔗 Procesando GOREMAL_SURROGATE_ID ← NOMBRE CORTO DEL CURSO
+   🔍 Buscando header "NOMBRE CORTO DEL CURSO" en posición 4
+   📋 Valor encontrado en posición [4]: "LENGUAJE DE PROGRAMACION II"
+   ✅ GOREMAL_SURROGATE_ID = "null" (desde header "NOMBRE CORTO DEL CURSO")
+🔗 Procesando GOREMAL_VERSION ← NOMBRE CURSO
+   🔍 Buscando header "NOMBRE CURSO" en posición 3
+   📋 Valor encontrado en posición [3]: "LENGUAJE DE PROGRAMACION II"
+   ✅ GOREMAL_VERSION = "null" (desde header "NOMBRE CURSO")
+🔗 Procesando GOREMAL_VPDI_CODE ← PROGRAMA LIC
+   🔍 Buscando header "PROGRAMA LIC" en posición 9
+   📋 Valor encontrado en posición [9]: "PLAN2018SPCI"
+   ✅ GOREMAL_VPDI_CODE = "PLAN2018SPCI" (desde header "PROGRAMA LIC")
+
+✅ REGISTRO FINAL GENERADO:
+   GOREMAL_PIDM: null
+   GOREMAL_EMAL_CODE: COIN18SA04
+   GOREMAL_EMAIL_ADDRESS: COIN18SA04
+   GOREMAL_STATUS_IND: COIN18SA04
+   GOREMAL_PREFERRED_IND: 40
+   GOREMAL_ACTIVITY_DATE: SYSDATE
+   GOREMAL_USER_ID: 40
+   GOREMAL_COMMENT: 3
+   GOREMAL_DISP_WEB_IND: 01210
+   GOREMAL_DATA_ORIGIN: PROG
+   GOREMAL_SURROGATE_ID: null
+   GOREMAL_VERSION: null
+   GOREMAL_VPDI_CODE: PLAN2018SPCI
+────────────────────────────────────────────────────────────
+🔍 DEBUG: ReverseMapping extraído: {
+  GOREMAL_PIDM: 'AREA',
+  GOREMAL_EMAL_CODE: 'AREA',
+  GOREMAL_EMAIL_ADDRESS: 'AREA',
+  GOREMAL_STATUS_IND: 'AREA',
+  GOREMAL_PREFERRED_IND: 'CICLO',
+  GOREMAL_ACTIVITY_DATE: 'SYSDATE',
+  GOREMAL_USER_ID: 'CICLO',
+  GOREMAL_COMMENT: 'CREDITOS',
+  GOREMAL_DISP_WEB_IND: 'CURSO',
+  GOREMAL_DATA_ORIGIN: 'MATERIA',
+  GOREMAL_SURROGATE_ID: 'NOMBRE CORTO DEL CURSO',
+  GOREMAL_VERSION: 'NOMBRE CURSO',
+  GOREMAL_VPDI_CODE: 'PROGRAMA LIC'
+}
+🔍 DEBUG: Procesando fila con headers: [AREA, MATERIA, CURSO, NOMBRE CURSO, NOMBRE CORTO DEL CURSO, CICLO, CREDITOS, NUMERO  DE CURSOS, PROGRAMA BANNER, PROGRAMA LIC]
+🔍 DEBUG: Datos de la fila: [COIN18SA04, PROG, 01240, PROGRAMACION ORIENTADA A OBJETOS II, PROG ORIENTADA A OBJETOS II, 40, 3, 1, CSPTICOINSS3, PLAN2018SPCI]
+🔗 Procesando GOREMAL_PIDM ← AREA
+   🔍 Buscando header "AREA" en posición 0
+   📋 Valor encontrado en posición [0]: "COIN18SA04"
+   ✅ GOREMAL_PIDM = "null" (desde header "AREA")
+🔗 Procesando GOREMAL_EMAL_CODE ← AREA
+   🔍 Buscando header "AREA" en posición 0
+   📋 Valor encontrado en posición [0]: "COIN18SA04"
+   ✅ GOREMAL_EMAL_CODE = "COIN18SA04" (desde header "AREA")
+🔗 Procesando GOREMAL_EMAIL_ADDRESS ← AREA
+   🔍 Buscando header "AREA" en posición 0
+   📋 Valor encontrado en posición [0]: "COIN18SA04"
+   ✅ GOREMAL_EMAIL_ADDRESS = "COIN18SA04" (desde header "AREA")
+🔗 Procesando GOREMAL_STATUS_IND ← AREA
+   🔍 Buscando header "AREA" en posición 0
+   📋 Valor encontrado en posición [0]: "COIN18SA04"
+   ✅ GOREMAL_STATUS_IND = "COIN18SA04" (desde header "AREA")
+🔗 Procesando GOREMAL_PREFERRED_IND ← CICLO
+   🔍 Buscando header "CICLO" en posición 5
+   📋 Valor encontrado en posición [5]: "40"
+   ✅ GOREMAL_PREFERRED_IND = "40" (desde header "CICLO")
+🔗 Procesando GOREMAL_ACTIVITY_DATE ← SYSDATE
+   ✅ GOREMAL_ACTIVITY_DATE = SYSDATE
+🔗 Procesando GOREMAL_USER_ID ← CICLO
+   🔍 Buscando header "CICLO" en posición 5
+   📋 Valor encontrado en posición [5]: "40"
+   ✅ GOREMAL_USER_ID = "40" (desde header "CICLO")
+🔗 Procesando GOREMAL_COMMENT ← CREDITOS
+   🔍 Buscando header "CREDITOS" en posición 6
+   📋 Valor encontrado en posición [6]: "3"
+   ✅ GOREMAL_COMMENT = "3" (desde header "CREDITOS")
+🔗 Procesando GOREMAL_DISP_WEB_IND ← CURSO
+   🔍 Buscando header "CURSO" en posición 2
+   📋 Valor encontrado en posición [2]: "01240"
+   ✅ GOREMAL_DISP_WEB_IND = "01240" (desde header "CURSO")
+🔗 Procesando GOREMAL_DATA_ORIGIN ← MATERIA
+   🔍 Buscando header "MATERIA" en posición 1
+   📋 Valor encontrado en posición [1]: "PROG"
+   ✅ GOREMAL_DATA_ORIGIN = "PROG" (desde header "MATERIA")
+🔗 Procesando GOREMAL_SURROGATE_ID ← NOMBRE CORTO DEL CURSO
+   🔍 Buscando header "NOMBRE CORTO DEL CURSO" en posición 4
+   📋 Valor encontrado en posición [4]: "PROG ORIENTADA A OBJETOS II"
+   ✅ GOREMAL_SURROGATE_ID = "null" (desde header "NOMBRE CORTO DEL CURSO")
+🔗 Procesando GOREMAL_VERSION ← NOMBRE CURSO
+   🔍 Buscando header "NOMBRE CURSO" en posición 3
+   📋 Valor encontrado en posición [3]: "PROGRAMACION ORIENTADA A OBJETOS II"
+   ✅ GOREMAL_VERSION = "null" (desde header "NOMBRE CURSO")
+🔗 Procesando GOREMAL_VPDI_CODE ← PROGRAMA LIC
+   🔍 Buscando header "PROGRAMA LIC" en posición 9
+   📋 Valor encontrado en posición [9]: "PLAN2018SPCI"
+   ✅ GOREMAL_VPDI_CODE = "PLAN2018SPCI" (desde header "PROGRAMA LIC")
+
+✅ REGISTRO FINAL GENERADO:
+   GOREMAL_PIDM: null
+   GOREMAL_EMAL_CODE: COIN18SA04
+   GOREMAL_EMAIL_ADDRESS: COIN18SA04
+   GOREMAL_STATUS_IND: COIN18SA04
+   GOREMAL_PREFERRED_IND: 40
+   GOREMAL_ACTIVITY_DATE: SYSDATE
+   GOREMAL_USER_ID: 40
+   GOREMAL_COMMENT: 3
+   GOREMAL_DISP_WEB_IND: 01240
+   GOREMAL_DATA_ORIGIN: PROG
+   GOREMAL_SURROGATE_ID: null
+   GOREMAL_VERSION: null
+   GOREMAL_VPDI_CODE: PLAN2018SPCI
+────────────────────────────────────────────────────────────
+🔍 DEBUG: ReverseMapping extraído: {
+  GOREMAL_PIDM: 'AREA',
+  GOREMAL_EMAL_CODE: 'AREA',
+  GOREMAL_EMAIL_ADDRESS: 'AREA',
+  GOREMAL_STATUS_IND: 'AREA',
+  GOREMAL_PREFERRED_IND: 'CICLO',
+  GOREMAL_ACTIVITY_DATE: 'SYSDATE',
+  GOREMAL_USER_ID: 'CICLO',
+  GOREMAL_COMMENT: 'CREDITOS',
+  GOREMAL_DISP_WEB_IND: 'CURSO',
+  GOREMAL_DATA_ORIGIN: 'MATERIA',
+  GOREMAL_SURROGATE_ID: 'NOMBRE CORTO DEL CURSO',
+  GOREMAL_VERSION: 'NOMBRE CURSO',
+  GOREMAL_VPDI_CODE: 'PROGRAMA LIC'
+}
+🔍 DEBUG: Procesando fila con headers: [AREA, MATERIA, CURSO, NOMBRE CURSO, NOMBRE CORTO DEL CURSO, CICLO, CREDITOS, NUMERO  DE CURSOS, PROGRAMA BANNER, PROGRAMA LIC]
+🔍 DEBUG: Datos de la fila: [COIN18SA04, GDAT, 02100, BASE DE DATOS AVANZADO II, BASE DE DATOS AVANZADO II, 40, 3, 1, CSPTICOINSS3, PLAN2018SPCI]   
+🔗 Procesando GOREMAL_PIDM ← AREA
+   🔍 Buscando header "AREA" en posición 0
+   📋 Valor encontrado en posición [0]: "COIN18SA04"
+   ✅ GOREMAL_PIDM = "null" (desde header "AREA")
+🔗 Procesando GOREMAL_EMAL_CODE ← AREA
+   🔍 Buscando header "AREA" en posición 0
+   📋 Valor encontrado en posición [0]: "COIN18SA04"
+   ✅ GOREMAL_EMAL_CODE = "COIN18SA04" (desde header "AREA")
+🔗 Procesando GOREMAL_EMAIL_ADDRESS ← AREA
+   🔍 Buscando header "AREA" en posición 0
+   📋 Valor encontrado en posición [0]: "COIN18SA04"
+   ✅ GOREMAL_EMAIL_ADDRESS = "COIN18SA04" (desde header "AREA")
+🔗 Procesando GOREMAL_STATUS_IND ← AREA
+   🔍 Buscando header "AREA" en posición 0
+   📋 Valor encontrado en posición [0]: "COIN18SA04"
+   ✅ GOREMAL_STATUS_IND = "COIN18SA04" (desde header "AREA")
+🔗 Procesando GOREMAL_PREFERRED_IND ← CICLO
+   🔍 Buscando header "CICLO" en posición 5
+   📋 Valor encontrado en posición [5]: "40"
+   ✅ GOREMAL_PREFERRED_IND = "40" (desde header "CICLO")
+🔗 Procesando GOREMAL_ACTIVITY_DATE ← SYSDATE
+   ✅ GOREMAL_ACTIVITY_DATE = SYSDATE
+🔗 Procesando GOREMAL_USER_ID ← CICLO
+   🔍 Buscando header "CICLO" en posición 5
+   📋 Valor encontrado en posición [5]: "40"
+   ✅ GOREMAL_USER_ID = "40" (desde header "CICLO")
+🔗 Procesando GOREMAL_COMMENT ← CREDITOS
+   🔍 Buscando header "CREDITOS" en posición 6
+   📋 Valor encontrado en posición [6]: "3"
+   ✅ GOREMAL_COMMENT = "3" (desde header "CREDITOS")
+🔗 Procesando GOREMAL_DISP_WEB_IND ← CURSO
+   🔍 Buscando header "CURSO" en posición 2
+   📋 Valor encontrado en posición [2]: "02100"
+   ✅ GOREMAL_DISP_WEB_IND = "02100" (desde header "CURSO")
+🔗 Procesando GOREMAL_DATA_ORIGIN ← MATERIA
+   🔍 Buscando header "MATERIA" en posición 1
+   📋 Valor encontrado en posición [1]: "GDAT"
+   ✅ GOREMAL_DATA_ORIGIN = "GDAT" (desde header "MATERIA")
+🔗 Procesando GOREMAL_SURROGATE_ID ← NOMBRE CORTO DEL CURSO
+   🔍 Buscando header "NOMBRE CORTO DEL CURSO" en posición 4
+   📋 Valor encontrado en posición [4]: "BASE DE DATOS AVANZADO II"
+   ✅ GOREMAL_SURROGATE_ID = "null" (desde header "NOMBRE CORTO DEL CURSO")
+🔗 Procesando GOREMAL_VERSION ← NOMBRE CURSO
+   🔍 Buscando header "NOMBRE CURSO" en posición 3
+   📋 Valor encontrado en posición [3]: "BASE DE DATOS AVANZADO II"
+   ✅ GOREMAL_VERSION = "null" (desde header "NOMBRE CURSO")
+🔗 Procesando GOREMAL_VPDI_CODE ← PROGRAMA LIC
+   🔍 Buscando header "PROGRAMA LIC" en posición 9
+   📋 Valor encontrado en posición [9]: "PLAN2018SPCI"
+   ✅ GOREMAL_VPDI_CODE = "PLAN2018SPCI" (desde header "PROGRAMA LIC")
+
+✅ REGISTRO FINAL GENERADO:
+   GOREMAL_PIDM: null
+   GOREMAL_EMAL_CODE: COIN18SA04
+   GOREMAL_EMAIL_ADDRESS: COIN18SA04
+   GOREMAL_STATUS_IND: COIN18SA04
+   GOREMAL_PREFERRED_IND: 40
+   GOREMAL_ACTIVITY_DATE: SYSDATE
+   GOREMAL_USER_ID: 40
+   GOREMAL_COMMENT: 3
+   GOREMAL_DISP_WEB_IND: 02100
+   GOREMAL_DATA_ORIGIN: GDAT
+   GOREMAL_SURROGATE_ID: null
+   GOREMAL_VERSION: null
+   GOREMAL_VPDI_CODE: PLAN2018SPCI
+────────────────────────────────────────────────────────────
+🔍 DEBUG: ReverseMapping extraído: {
+  GOREMAL_PIDM: 'AREA',
+  GOREMAL_EMAL_CODE: 'AREA',
+  GOREMAL_EMAIL_ADDRESS: 'AREA',
+  GOREMAL_STATUS_IND: 'AREA',
+  GOREMAL_PREFERRED_IND: 'CICLO',
+  GOREMAL_ACTIVITY_DATE: 'SYSDATE',
+  GOREMAL_USER_ID: 'CICLO',
+  GOREMAL_COMMENT: 'CREDITOS',
+  GOREMAL_DISP_WEB_IND: 'CURSO',
+  GOREMAL_DATA_ORIGIN: 'MATERIA',
+  GOREMAL_SURROGATE_ID: 'NOMBRE CORTO DEL CURSO',
+  GOREMAL_VERSION: 'NOMBRE CURSO',
+  GOREMAL_VPDI_CODE: 'PROGRAMA LIC'
+}
+🔍 DEBUG: Procesando fila con headers: [AREA, MATERIA, CURSO, NOMBRE CURSO, NOMBRE CORTO DEL CURSO, CICLO, CREDITOS, NUMERO  DE CURSOS, PROGRAMA BANNER, PROGRAMA LIC]
+🔍 DEBUG: Datos de la fila: [COIN18SA04, GDAT, 02101, BASE DE DATOS AVANZADO II, BASE DE DATOS AVANZADO II, 40, 3, 1, CSPTICOINSS3, PLAN2018SPCI]   
+🔗 Procesando GOREMAL_PIDM ← AREA
+   🔍 Buscando header "AREA" en posición 0
+   📋 Valor encontrado en posición [0]: "COIN18SA04"
+   ✅ GOREMAL_PIDM = "null" (desde header "AREA")
+🔗 Procesando GOREMAL_EMAL_CODE ← AREA
+   🔍 Buscando header "AREA" en posición 0
+   📋 Valor encontrado en posición [0]: "COIN18SA04"
+   ✅ GOREMAL_EMAL_CODE = "COIN18SA04" (desde header "AREA")
+🔗 Procesando GOREMAL_EMAIL_ADDRESS ← AREA
+   🔍 Buscando header "AREA" en posición 0
+   📋 Valor encontrado en posición [0]: "COIN18SA04"
+   ✅ GOREMAL_EMAIL_ADDRESS = "COIN18SA04" (desde header "AREA")
+🔗 Procesando GOREMAL_STATUS_IND ← AREA
+   🔍 Buscando header "AREA" en posición 0
+   📋 Valor encontrado en posición [0]: "COIN18SA04"
+   ✅ GOREMAL_STATUS_IND = "COIN18SA04" (desde header "AREA")
+🔗 Procesando GOREMAL_PREFERRED_IND ← CICLO
+   🔍 Buscando header "CICLO" en posición 5
+   📋 Valor encontrado en posición [5]: "40"
+   ✅ GOREMAL_PREFERRED_IND = "40" (desde header "CICLO")
+🔗 Procesando GOREMAL_ACTIVITY_DATE ← SYSDATE
+   ✅ GOREMAL_ACTIVITY_DATE = SYSDATE
+🔗 Procesando GOREMAL_USER_ID ← CICLO
+   🔍 Buscando header "CICLO" en posición 5
+   📋 Valor encontrado en posición [5]: "40"
+   ✅ GOREMAL_USER_ID = "40" (desde header "CICLO")
+🔗 Procesando GOREMAL_COMMENT ← CREDITOS
+   🔍 Buscando header "CREDITOS" en posición 6
+   📋 Valor encontrado en posición [6]: "3"
+   ✅ GOREMAL_COMMENT = "3" (desde header "CREDITOS")
+🔗 Procesando GOREMAL_DISP_WEB_IND ← CURSO
+   🔍 Buscando header "CURSO" en posición 2
+   📋 Valor encontrado en posición [2]: "02101"
+   ✅ GOREMAL_DISP_WEB_IND = "02101" (desde header "CURSO")
+🔗 Procesando GOREMAL_DATA_ORIGIN ← MATERIA
+   🔍 Buscando header "MATERIA" en posición 1
+   📋 Valor encontrado en posición [1]: "GDAT"
+   ✅ GOREMAL_DATA_ORIGIN = "GDAT" (desde header "MATERIA")
+🔗 Procesando GOREMAL_SURROGATE_ID ← NOMBRE CORTO DEL CURSO
+   🔍 Buscando header "NOMBRE CORTO DEL CURSO" en posición 4
+   📋 Valor encontrado en posición [4]: "BASE DE DATOS AVANZADO II"
+   ✅ GOREMAL_SURROGATE_ID = "null" (desde header "NOMBRE CORTO DEL CURSO")
+🔗 Procesando GOREMAL_VERSION ← NOMBRE CURSO
+   🔍 Buscando header "NOMBRE CURSO" en posición 3
+   📋 Valor encontrado en posición [3]: "BASE DE DATOS AVANZADO II"
+   ✅ GOREMAL_VERSION = "null" (desde header "NOMBRE CURSO")
+🔗 Procesando GOREMAL_VPDI_CODE ← PROGRAMA LIC
+   🔍 Buscando header "PROGRAMA LIC" en posición 9
+   📋 Valor encontrado en posición [9]: "PLAN2018SPCI"
+   ✅ GOREMAL_VPDI_CODE = "PLAN2018SPCI" (desde header "PROGRAMA LIC")
+
+✅ REGISTRO FINAL GENERADO:
+   GOREMAL_PIDM: null
+   GOREMAL_EMAL_CODE: COIN18SA04
+   GOREMAL_EMAIL_ADDRESS: COIN18SA04
+   GOREMAL_STATUS_IND: COIN18SA04
+   GOREMAL_PREFERRED_IND: 40
+   GOREMAL_ACTIVITY_DATE: SYSDATE
+   GOREMAL_USER_ID: 40
+   GOREMAL_COMMENT: 3
+   GOREMAL_DISP_WEB_IND: 02101
+   GOREMAL_DATA_ORIGIN: GDAT
+   GOREMAL_SURROGATE_ID: null
+   GOREMAL_VERSION: null
+   GOREMAL_VPDI_CODE: PLAN2018SPCI
+────────────────────────────────────────────────────────────
+🔍 DEBUG: ReverseMapping extraído: {
+  GOREMAL_PIDM: 'AREA',
+  GOREMAL_EMAL_CODE: 'AREA',
+  GOREMAL_EMAIL_ADDRESS: 'AREA',
+  GOREMAL_STATUS_IND: 'AREA',
+  GOREMAL_PREFERRED_IND: 'CICLO',
+  GOREMAL_ACTIVITY_DATE: 'SYSDATE',
+  GOREMAL_USER_ID: 'CICLO',
+  GOREMAL_COMMENT: 'CREDITOS',
+  GOREMAL_DISP_WEB_IND: 'CURSO',
+  GOREMAL_DATA_ORIGIN: 'MATERIA',
+  GOREMAL_SURROGATE_ID: 'NOMBRE CORTO DEL CURSO',
+  GOREMAL_VERSION: 'NOMBRE CURSO',
+  GOREMAL_VPDI_CODE: 'PROGRAMA LIC'
+}
+🔍 DEBUG: Procesando fila con headers: [AREA, MATERIA, CURSO, NOMBRE CURSO, NOMBRE CORTO DEL CURSO, CICLO, CREDITOS, NUMERO  DE CURSOS, PROGRAMA BANNER, PROGRAMA LIC]
+🔍 DEBUG: Datos de la fila: [COIN18SA04, GDAT, 02102, BASE DE DATOS AVANZADO II, BASE DE DATOS AVANZADO II, 40, 3, 1, CSPTICOINSS3, PLAN2018SPCI]   
+🔗 Procesando GOREMAL_PIDM ← AREA
+   🔍 Buscando header "AREA" en posición 0
+   📋 Valor encontrado en posición [0]: "COIN18SA04"
+   ✅ GOREMAL_PIDM = "null" (desde header "AREA")
+🔗 Procesando GOREMAL_EMAL_CODE ← AREA
+   🔍 Buscando header "AREA" en posición 0
+   📋 Valor encontrado en posición [0]: "COIN18SA04"
+   ✅ GOREMAL_EMAL_CODE = "COIN18SA04" (desde header "AREA")
+🔗 Procesando GOREMAL_EMAIL_ADDRESS ← AREA
+   🔍 Buscando header "AREA" en posición 0
+   📋 Valor encontrado en posición [0]: "COIN18SA04"
+   ✅ GOREMAL_EMAIL_ADDRESS = "COIN18SA04" (desde header "AREA")
+🔗 Procesando GOREMAL_STATUS_IND ← AREA
+   🔍 Buscando header "AREA" en posición 0
+   📋 Valor encontrado en posición [0]: "COIN18SA04"
+   ✅ GOREMAL_STATUS_IND = "COIN18SA04" (desde header "AREA")
+🔗 Procesando GOREMAL_PREFERRED_IND ← CICLO
+   🔍 Buscando header "CICLO" en posición 5
+   📋 Valor encontrado en posición [5]: "40"
+   ✅ GOREMAL_PREFERRED_IND = "40" (desde header "CICLO")
+🔗 Procesando GOREMAL_ACTIVITY_DATE ← SYSDATE
+   ✅ GOREMAL_ACTIVITY_DATE = SYSDATE
+🔗 Procesando GOREMAL_USER_ID ← CICLO
+   🔍 Buscando header "CICLO" en posición 5
+   📋 Valor encontrado en posición [5]: "40"
+   ✅ GOREMAL_USER_ID = "40" (desde header "CICLO")
+🔗 Procesando GOREMAL_COMMENT ← CREDITOS
+   🔍 Buscando header "CREDITOS" en posición 6
+   📋 Valor encontrado en posición [6]: "3"
+   ✅ GOREMAL_COMMENT = "3" (desde header "CREDITOS")
+🔗 Procesando GOREMAL_DISP_WEB_IND ← CURSO
+   🔍 Buscando header "CURSO" en posición 2
+   📋 Valor encontrado en posición [2]: "02102"
+   ✅ GOREMAL_DISP_WEB_IND = "02102" (desde header "CURSO")
+🔗 Procesando GOREMAL_DATA_ORIGIN ← MATERIA
+   🔍 Buscando header "MATERIA" en posición 1
+   📋 Valor encontrado en posición [1]: "GDAT"
+   ✅ GOREMAL_DATA_ORIGIN = "GDAT" (desde header "MATERIA")
+🔗 Procesando GOREMAL_SURROGATE_ID ← NOMBRE CORTO DEL CURSO
+   🔍 Buscando header "NOMBRE CORTO DEL CURSO" en posición 4
+   📋 Valor encontrado en posición [4]: "BASE DE DATOS AVANZADO II"
+   ✅ GOREMAL_SURROGATE_ID = "null" (desde header "NOMBRE CORTO DEL CURSO")
+🔗 Procesando GOREMAL_VERSION ← NOMBRE CURSO
+   🔍 Buscando header "NOMBRE CURSO" en posición 3
+   📋 Valor encontrado en posición [3]: "BASE DE DATOS AVANZADO II"
+   ✅ GOREMAL_VERSION = "null" (desde header "NOMBRE CURSO")
+🔗 Procesando GOREMAL_VPDI_CODE ← PROGRAMA LIC
+   🔍 Buscando header "PROGRAMA LIC" en posición 9
+   📋 Valor encontrado en posición [9]: "PLAN2018SPCI"
+   ✅ GOREMAL_VPDI_CODE = "PLAN2018SPCI" (desde header "PROGRAMA LIC")
+
+✅ REGISTRO FINAL GENERADO:
+   GOREMAL_PIDM: null
+   GOREMAL_EMAL_CODE: COIN18SA04
+   GOREMAL_EMAIL_ADDRESS: COIN18SA04
+   GOREMAL_STATUS_IND: COIN18SA04
+   GOREMAL_PREFERRED_IND: 40
+   GOREMAL_ACTIVITY_DATE: SYSDATE
+   GOREMAL_USER_ID: 40
+   GOREMAL_COMMENT: 3
+   GOREMAL_DISP_WEB_IND: 02102
+   GOREMAL_DATA_ORIGIN: GDAT
+   GOREMAL_SURROGATE_ID: null
+   GOREMAL_VERSION: null
+   GOREMAL_VPDI_CODE: PLAN2018SPCI
+────────────────────────────────────────────────────────────
+🔍 DEBUG: ReverseMapping extraído: {
+  GOREMAL_PIDM: 'AREA',
+  GOREMAL_EMAL_CODE: 'AREA',
+  GOREMAL_EMAIL_ADDRESS: 'AREA',
+  GOREMAL_STATUS_IND: 'AREA',
+  GOREMAL_PREFERRED_IND: 'CICLO',
+  GOREMAL_ACTIVITY_DATE: 'SYSDATE',
+  GOREMAL_USER_ID: 'CICLO',
+  GOREMAL_COMMENT: 'CREDITOS',
+  GOREMAL_DISP_WEB_IND: 'CURSO',
+  GOREMAL_DATA_ORIGIN: 'MATERIA',
+  GOREMAL_SURROGATE_ID: 'NOMBRE CORTO DEL CURSO',
+  GOREMAL_VERSION: 'NOMBRE CURSO',
+  GOREMAL_VPDI_CODE: 'PROGRAMA LIC'
+}
+🔍 DEBUG: Procesando fila con headers: [AREA, MATERIA, CURSO, NOMBRE CURSO, NOMBRE CORTO DEL CURSO, CICLO, CREDITOS, NUMERO  DE CURSOS, PROGRAMA BANNER, PROGRAMA LIC]
+🔍 DEBUG: Datos de la fila: [COIN18SA04, GDAT, 02103, BASE DE DATOS AVANZADO II, BASE DE DATOS AVANZADO II, 40, 3, 1, CSPTICOINSS3, PLAN2018SPCI]   
+🔗 Procesando GOREMAL_PIDM ← AREA
+   🔍 Buscando header "AREA" en posición 0
+   📋 Valor encontrado en posición [0]: "COIN18SA04"
+   ✅ GOREMAL_PIDM = "null" (desde header "AREA")
+🔗 Procesando GOREMAL_EMAL_CODE ← AREA
+   🔍 Buscando header "AREA" en posición 0
+   📋 Valor encontrado en posición [0]: "COIN18SA04"
+   ✅ GOREMAL_EMAL_CODE = "COIN18SA04" (desde header "AREA")
+🔗 Procesando GOREMAL_EMAIL_ADDRESS ← AREA
+   🔍 Buscando header "AREA" en posición 0
+   📋 Valor encontrado en posición [0]: "COIN18SA04"
+   ✅ GOREMAL_EMAIL_ADDRESS = "COIN18SA04" (desde header "AREA")
+🔗 Procesando GOREMAL_STATUS_IND ← AREA
+   🔍 Buscando header "AREA" en posición 0
+   📋 Valor encontrado en posición [0]: "COIN18SA04"
+   ✅ GOREMAL_STATUS_IND = "COIN18SA04" (desde header "AREA")
+🔗 Procesando GOREMAL_PREFERRED_IND ← CICLO
+   🔍 Buscando header "CICLO" en posición 5
+   📋 Valor encontrado en posición [5]: "40"
+   ✅ GOREMAL_PREFERRED_IND = "40" (desde header "CICLO")
+🔗 Procesando GOREMAL_ACTIVITY_DATE ← SYSDATE
+   ✅ GOREMAL_ACTIVITY_DATE = SYSDATE
+🔗 Procesando GOREMAL_USER_ID ← CICLO
+   🔍 Buscando header "CICLO" en posición 5
+   📋 Valor encontrado en posición [5]: "40"
+   ✅ GOREMAL_USER_ID = "40" (desde header "CICLO")
+🔗 Procesando GOREMAL_COMMENT ← CREDITOS
+   🔍 Buscando header "CREDITOS" en posición 6
+   📋 Valor encontrado en posición [6]: "3"
+   ✅ GOREMAL_COMMENT = "3" (desde header "CREDITOS")
+🔗 Procesando GOREMAL_DISP_WEB_IND ← CURSO
+   🔍 Buscando header "CURSO" en posición 2
+   📋 Valor encontrado en posición [2]: "02103"
+   ✅ GOREMAL_DISP_WEB_IND = "02103" (desde header "CURSO")
+🔗 Procesando GOREMAL_DATA_ORIGIN ← MATERIA
+   🔍 Buscando header "MATERIA" en posición 1
+   📋 Valor encontrado en posición [1]: "GDAT"
+   ✅ GOREMAL_DATA_ORIGIN = "GDAT" (desde header "MATERIA")
+🔗 Procesando GOREMAL_SURROGATE_ID ← NOMBRE CORTO DEL CURSO
+   🔍 Buscando header "NOMBRE CORTO DEL CURSO" en posición 4
+   📋 Valor encontrado en posición [4]: "BASE DE DATOS AVANZADO II"
+   ✅ GOREMAL_SURROGATE_ID = "null" (desde header "NOMBRE CORTO DEL CURSO")
+🔗 Procesando GOREMAL_VERSION ← NOMBRE CURSO
+   🔍 Buscando header "NOMBRE CURSO" en posición 3
+   📋 Valor encontrado en posición [3]: "BASE DE DATOS AVANZADO II"
+   ✅ GOREMAL_VERSION = "null" (desde header "NOMBRE CURSO")
+🔗 Procesando GOREMAL_VPDI_CODE ← PROGRAMA LIC
+   🔍 Buscando header "PROGRAMA LIC" en posición 9
+   📋 Valor encontrado en posición [9]: "PLAN2018SPCI"
+   ✅ GOREMAL_VPDI_CODE = "PLAN2018SPCI" (desde header "PROGRAMA LIC")
+
+✅ REGISTRO FINAL GENERADO:
+   GOREMAL_PIDM: null
+   GOREMAL_EMAL_CODE: COIN18SA04
+   GOREMAL_EMAIL_ADDRESS: COIN18SA04
+   GOREMAL_STATUS_IND: COIN18SA04
+   GOREMAL_PREFERRED_IND: 40
+   GOREMAL_ACTIVITY_DATE: SYSDATE
+   GOREMAL_USER_ID: 40
+   GOREMAL_COMMENT: 3
+   GOREMAL_DISP_WEB_IND: 02103
+   GOREMAL_DATA_ORIGIN: GDAT
+   GOREMAL_SURROGATE_ID: null
+   GOREMAL_VERSION: null
+   GOREMAL_VPDI_CODE: PLAN2018SPCI
+────────────────────────────────────────────────────────────
+✅ Hoja "COIN18SA04": 6 INSERTs válidos generados
+📊 Procesando hoja "COIN18SAM1": 6 filas con datos
+🔍 DEBUG: ReverseMapping extraído: {
+  GOREMAL_PIDM: 'AREA',
+  GOREMAL_EMAL_CODE: 'AREA',
+  GOREMAL_EMAIL_ADDRESS: 'AREA',
+  GOREMAL_STATUS_IND: 'AREA',
+  GOREMAL_PREFERRED_IND: 'CICLO',
+  GOREMAL_ACTIVITY_DATE: 'SYSDATE',
+  GOREMAL_USER_ID: 'CICLO',
+  GOREMAL_COMMENT: 'CREDITOS',
+  GOREMAL_DISP_WEB_IND: 'CURSO',
+  GOREMAL_DATA_ORIGIN: 'MATERIA',
+  GOREMAL_SURROGATE_ID: 'NOMBRE CORTO DEL CURSO',
+  GOREMAL_VERSION: 'NOMBRE CURSO',
+  GOREMAL_VPDI_CODE: 'PROGRAMA LIC'
+}
+🔍 DEBUG: Procesando fila con headers: [AREA, MATERIA, CURSO, NOMBRE CURSO, NOMBRE CORTO DEL CURSO, CICLO, CREDITOS, NUMERO  DE CURSOS, PROGRAMA BANNER, PROGRAMA LIC]
+🔍 DEBUG: Datos de la fila: [COIN18SAM1, ALED, 01100, INTRODUCCION A LA ALGORITMIA, INTRODUCCION A LA ALGORITMIA, 10, 6, 1, CSPTICOINSS3, PLAN2018SPCI]
+🔗 Procesando GOREMAL_PIDM ← AREA
+   🔍 Buscando header "AREA" en posición 0
+   📋 Valor encontrado en posición [0]: "COIN18SAM1"
+   ✅ GOREMAL_PIDM = "null" (desde header "AREA")
+🔗 Procesando GOREMAL_EMAL_CODE ← AREA
+   🔍 Buscando header "AREA" en posición 0
+   📋 Valor encontrado en posición [0]: "COIN18SAM1"
+   ✅ GOREMAL_EMAL_CODE = "COIN18SAM1" (desde header "AREA")
+🔗 Procesando GOREMAL_EMAIL_ADDRESS ← AREA
+   🔍 Buscando header "AREA" en posición 0
+   📋 Valor encontrado en posición [0]: "COIN18SAM1"
+   ✅ GOREMAL_EMAIL_ADDRESS = "COIN18SAM1" (desde header "AREA")
+🔗 Procesando GOREMAL_STATUS_IND ← AREA
+   🔍 Buscando header "AREA" en posición 0
+   📋 Valor encontrado en posición [0]: "COIN18SAM1"
+   ✅ GOREMAL_STATUS_IND = "COIN18SAM1" (desde header "AREA")
+🔗 Procesando GOREMAL_PREFERRED_IND ← CICLO
+   🔍 Buscando header "CICLO" en posición 5
+   📋 Valor encontrado en posición [5]: "10"
+   ✅ GOREMAL_PREFERRED_IND = "10" (desde header "CICLO")
+🔗 Procesando GOREMAL_ACTIVITY_DATE ← SYSDATE
+   ✅ GOREMAL_ACTIVITY_DATE = SYSDATE
+🔗 Procesando GOREMAL_USER_ID ← CICLO
+   🔍 Buscando header "CICLO" en posición 5
+   📋 Valor encontrado en posición [5]: "10"
+   ✅ GOREMAL_USER_ID = "10" (desde header "CICLO")
+🔗 Procesando GOREMAL_COMMENT ← CREDITOS
+   🔍 Buscando header "CREDITOS" en posición 6
+   📋 Valor encontrado en posición [6]: "6"
+   ✅ GOREMAL_COMMENT = "6" (desde header "CREDITOS")
+🔗 Procesando GOREMAL_DISP_WEB_IND ← CURSO
+   🔍 Buscando header "CURSO" en posición 2
+   📋 Valor encontrado en posición [2]: "01100"
+   ✅ GOREMAL_DISP_WEB_IND = "01100" (desde header "CURSO")
+🔗 Procesando GOREMAL_DATA_ORIGIN ← MATERIA
+   🔍 Buscando header "MATERIA" en posición 1
+   📋 Valor encontrado en posición [1]: "ALED"
+   ✅ GOREMAL_DATA_ORIGIN = "ALED" (desde header "MATERIA")
+🔗 Procesando GOREMAL_SURROGATE_ID ← NOMBRE CORTO DEL CURSO
+   🔍 Buscando header "NOMBRE CORTO DEL CURSO" en posición 4
+   📋 Valor encontrado en posición [4]: "INTRODUCCION A LA ALGORITMIA"
+   ✅ GOREMAL_SURROGATE_ID = "null" (desde header "NOMBRE CORTO DEL CURSO")
+🔗 Procesando GOREMAL_VERSION ← NOMBRE CURSO
+   🔍 Buscando header "NOMBRE CURSO" en posición 3
+   📋 Valor encontrado en posición [3]: "INTRODUCCION A LA ALGORITMIA"
+   ✅ GOREMAL_VERSION = "null" (desde header "NOMBRE CURSO")
+🔗 Procesando GOREMAL_VPDI_CODE ← PROGRAMA LIC
+   🔍 Buscando header "PROGRAMA LIC" en posición 9
+   📋 Valor encontrado en posición [9]: "PLAN2018SPCI"
+   ✅ GOREMAL_VPDI_CODE = "PLAN2018SPCI" (desde header "PROGRAMA LIC")
+
+✅ REGISTRO FINAL GENERADO:
+   GOREMAL_PIDM: null
+   GOREMAL_EMAL_CODE: COIN18SAM1
+   GOREMAL_EMAIL_ADDRESS: COIN18SAM1
+   GOREMAL_STATUS_IND: COIN18SAM1
+   GOREMAL_PREFERRED_IND: 10
+   GOREMAL_ACTIVITY_DATE: SYSDATE
+   GOREMAL_USER_ID: 10
+   GOREMAL_COMMENT: 6
+   GOREMAL_DISP_WEB_IND: 01100
+   GOREMAL_DATA_ORIGIN: ALED
+   GOREMAL_SURROGATE_ID: null
+   GOREMAL_VERSION: null
+   GOREMAL_VPDI_CODE: PLAN2018SPCI
+────────────────────────────────────────────────────────────
+🔍 DEBUG: ReverseMapping extraído: {
+  GOREMAL_PIDM: 'AREA',
+  GOREMAL_EMAL_CODE: 'AREA',
+  GOREMAL_EMAIL_ADDRESS: 'AREA',
+  GOREMAL_STATUS_IND: 'AREA',
+  GOREMAL_PREFERRED_IND: 'CICLO',
+  GOREMAL_ACTIVITY_DATE: 'SYSDATE',
+  GOREMAL_USER_ID: 'CICLO',
+  GOREMAL_COMMENT: 'CREDITOS',
+  GOREMAL_DISP_WEB_IND: 'CURSO',
+  GOREMAL_DATA_ORIGIN: 'MATERIA',
+  GOREMAL_SURROGATE_ID: 'NOMBRE CORTO DEL CURSO',
+  GOREMAL_VERSION: 'NOMBRE CURSO',
+  GOREMAL_VPDI_CODE: 'PROGRAMA LIC'
+}
+🔍 DEBUG: Procesando fila con headers: [AREA, MATERIA, CURSO, NOMBRE CURSO, NOMBRE CORTO DEL CURSO, CICLO, CREDITOS, NUMERO  DE CURSOS, PROGRAMA BANNER, PROGRAMA LIC]
+🔍 DEBUG: Datos de la fila: [COIN18SAM1, EMPL, 01000, HABILIDADES COMUNICATIVAS I, HABILIDADES COMUNICATIVAS I, 10, 3, 1, CSPTICOINSS3, PLAN2018SPCI]
+🔗 Procesando GOREMAL_PIDM ← AREA
+   🔍 Buscando header "AREA" en posición 0
+   📋 Valor encontrado en posición [0]: "COIN18SAM1"
+   ✅ GOREMAL_PIDM = "null" (desde header "AREA")
+🔗 Procesando GOREMAL_EMAL_CODE ← AREA
+   🔍 Buscando header "AREA" en posición 0
+   📋 Valor encontrado en posición [0]: "COIN18SAM1"
+   ✅ GOREMAL_EMAL_CODE = "COIN18SAM1" (desde header "AREA")
+🔗 Procesando GOREMAL_EMAIL_ADDRESS ← AREA
+   🔍 Buscando header "AREA" en posición 0
+   📋 Valor encontrado en posición [0]: "COIN18SAM1"
+   ✅ GOREMAL_EMAIL_ADDRESS = "COIN18SAM1" (desde header "AREA")
+🔗 Procesando GOREMAL_STATUS_IND ← AREA
+   🔍 Buscando header "AREA" en posición 0
+   📋 Valor encontrado en posición [0]: "COIN18SAM1"
+   ✅ GOREMAL_STATUS_IND = "COIN18SAM1" (desde header "AREA")
+🔗 Procesando GOREMAL_PREFERRED_IND ← CICLO
+   🔍 Buscando header "CICLO" en posición 5
+   📋 Valor encontrado en posición [5]: "10"
+   ✅ GOREMAL_PREFERRED_IND = "10" (desde header "CICLO")
+🔗 Procesando GOREMAL_ACTIVITY_DATE ← SYSDATE
+   ✅ GOREMAL_ACTIVITY_DATE = SYSDATE
+🔗 Procesando GOREMAL_USER_ID ← CICLO
+   🔍 Buscando header "CICLO" en posición 5
+   📋 Valor encontrado en posición [5]: "10"
+   ✅ GOREMAL_USER_ID = "10" (desde header "CICLO")
+🔗 Procesando GOREMAL_COMMENT ← CREDITOS
+   🔍 Buscando header "CREDITOS" en posición 6
+   📋 Valor encontrado en posición [6]: "3"
+   ✅ GOREMAL_COMMENT = "3" (desde header "CREDITOS")
+🔗 Procesando GOREMAL_DISP_WEB_IND ← CURSO
+   🔍 Buscando header "CURSO" en posición 2
+   📋 Valor encontrado en posición [2]: "01000"
+   ✅ GOREMAL_DISP_WEB_IND = "01000" (desde header "CURSO")
+🔗 Procesando GOREMAL_DATA_ORIGIN ← MATERIA
+   🔍 Buscando header "MATERIA" en posición 1
+   📋 Valor encontrado en posición [1]: "EMPL"
+   ✅ GOREMAL_DATA_ORIGIN = "EMPL" (desde header "MATERIA")
+🔗 Procesando GOREMAL_SURROGATE_ID ← NOMBRE CORTO DEL CURSO
+   🔍 Buscando header "NOMBRE CORTO DEL CURSO" en posición 4
+   📋 Valor encontrado en posición [4]: "HABILIDADES COMUNICATIVAS I"
+   ✅ GOREMAL_SURROGATE_ID = "null" (desde header "NOMBRE CORTO DEL CURSO")
+🔗 Procesando GOREMAL_VERSION ← NOMBRE CURSO
+   🔍 Buscando header "NOMBRE CURSO" en posición 3
+   📋 Valor encontrado en posición [3]: "HABILIDADES COMUNICATIVAS I"
+   ✅ GOREMAL_VERSION = "null" (desde header "NOMBRE CURSO")
+🔗 Procesando GOREMAL_VPDI_CODE ← PROGRAMA LIC
+   🔍 Buscando header "PROGRAMA LIC" en posición 9
+   📋 Valor encontrado en posición [9]: "PLAN2018SPCI"
+   ✅ GOREMAL_VPDI_CODE = "PLAN2018SPCI" (desde header "PROGRAMA LIC")
+
+✅ REGISTRO FINAL GENERADO:
+   GOREMAL_PIDM: null
+   GOREMAL_EMAL_CODE: COIN18SAM1
+   GOREMAL_EMAIL_ADDRESS: COIN18SAM1
+   GOREMAL_STATUS_IND: COIN18SAM1
+   GOREMAL_PREFERRED_IND: 10
+   GOREMAL_ACTIVITY_DATE: SYSDATE
+   GOREMAL_USER_ID: 10
+   GOREMAL_COMMENT: 3
+   GOREMAL_DISP_WEB_IND: 01000
+   GOREMAL_DATA_ORIGIN: EMPL
+   GOREMAL_SURROGATE_ID: null
+   GOREMAL_VERSION: null
+   GOREMAL_VPDI_CODE: PLAN2018SPCI
+────────────────────────────────────────────────────────────
+🔍 DEBUG: ReverseMapping extraído: {
+  GOREMAL_PIDM: 'AREA',
+  GOREMAL_EMAL_CODE: 'AREA',
+  GOREMAL_EMAIL_ADDRESS: 'AREA',
+  GOREMAL_STATUS_IND: 'AREA',
+  GOREMAL_PREFERRED_IND: 'CICLO',
+  GOREMAL_ACTIVITY_DATE: 'SYSDATE',
+  GOREMAL_USER_ID: 'CICLO',
+  GOREMAL_COMMENT: 'CREDITOS',
+  GOREMAL_DISP_WEB_IND: 'CURSO',
+  GOREMAL_DATA_ORIGIN: 'MATERIA',
+  GOREMAL_SURROGATE_ID: 'NOMBRE CORTO DEL CURSO',
+  GOREMAL_VERSION: 'NOMBRE CURSO',
+  GOREMAL_VPDI_CODE: 'PROGRAMA LIC'
+}
+🔍 DEBUG: Procesando fila con headers: [AREA, MATERIA, CURSO, NOMBRE CURSO, NOMBRE CORTO DEL CURSO, CICLO, CREDITOS, NUMERO  DE CURSOS, PROGRAMA BANNER, PROGRAMA LIC]
+🔍 DEBUG: Datos de la fila: [COIN18SAM1, MATE, 00100, MATEMATICA I, MATEMATICA I, 10, 3, 1, CSPTICOINSS3, PLAN2018SPCI]
+🔗 Procesando GOREMAL_PIDM ← AREA
+   🔍 Buscando header "AREA" en posición 0
+   📋 Valor encontrado en posición [0]: "COIN18SAM1"
+   ✅ GOREMAL_PIDM = "null" (desde header "AREA")
+🔗 Procesando GOREMAL_EMAL_CODE ← AREA
+   🔍 Buscando header "AREA" en posición 0
+   📋 Valor encontrado en posición [0]: "COIN18SAM1"
+   ✅ GOREMAL_EMAL_CODE = "COIN18SAM1" (desde header "AREA")
+🔗 Procesando GOREMAL_EMAIL_ADDRESS ← AREA
+   🔍 Buscando header "AREA" en posición 0
+   📋 Valor encontrado en posición [0]: "COIN18SAM1"
+   ✅ GOREMAL_EMAIL_ADDRESS = "COIN18SAM1" (desde header "AREA")
+🔗 Procesando GOREMAL_STATUS_IND ← AREA
+   🔍 Buscando header "AREA" en posición 0
+   📋 Valor encontrado en posición [0]: "COIN18SAM1"
+   ✅ GOREMAL_STATUS_IND = "COIN18SAM1" (desde header "AREA")
+🔗 Procesando GOREMAL_PREFERRED_IND ← CICLO
+   🔍 Buscando header "CICLO" en posición 5
+   📋 Valor encontrado en posición [5]: "10"
+   ✅ GOREMAL_PREFERRED_IND = "10" (desde header "CICLO")
+🔗 Procesando GOREMAL_ACTIVITY_DATE ← SYSDATE
+   ✅ GOREMAL_ACTIVITY_DATE = SYSDATE
+🔗 Procesando GOREMAL_USER_ID ← CICLO
+   🔍 Buscando header "CICLO" en posición 5
+   📋 Valor encontrado en posición [5]: "10"
+   ✅ GOREMAL_USER_ID = "10" (desde header "CICLO")
+🔗 Procesando GOREMAL_COMMENT ← CREDITOS
+   🔍 Buscando header "CREDITOS" en posición 6
+   📋 Valor encontrado en posición [6]: "3"
+   ✅ GOREMAL_COMMENT = "3" (desde header "CREDITOS")
+🔗 Procesando GOREMAL_DISP_WEB_IND ← CURSO
+   🔍 Buscando header "CURSO" en posición 2
+   📋 Valor encontrado en posición [2]: "00100"
+   ✅ GOREMAL_DISP_WEB_IND = "00100" (desde header "CURSO")
+🔗 Procesando GOREMAL_DATA_ORIGIN ← MATERIA
+   🔍 Buscando header "MATERIA" en posición 1
+   📋 Valor encontrado en posición [1]: "MATE"
+   ✅ GOREMAL_DATA_ORIGIN = "MATE" (desde header "MATERIA")
+🔗 Procesando GOREMAL_SURROGATE_ID ← NOMBRE CORTO DEL CURSO
+   🔍 Buscando header "NOMBRE CORTO DEL CURSO" en posición 4
+   📋 Valor encontrado en posición [4]: "MATEMATICA I"
+   ✅ GOREMAL_SURROGATE_ID = "null" (desde header "NOMBRE CORTO DEL CURSO")
+🔗 Procesando GOREMAL_VERSION ← NOMBRE CURSO
+   🔍 Buscando header "NOMBRE CURSO" en posición 3
+   📋 Valor encontrado en posición [3]: "MATEMATICA I"
+   ✅ GOREMAL_VERSION = "null" (desde header "NOMBRE CURSO")
+🔗 Procesando GOREMAL_VPDI_CODE ← PROGRAMA LIC
+   🔍 Buscando header "PROGRAMA LIC" en posición 9
+   📋 Valor encontrado en posición [9]: "PLAN2018SPCI"
+   ✅ GOREMAL_VPDI_CODE = "PLAN2018SPCI" (desde header "PROGRAMA LIC")
+
+✅ REGISTRO FINAL GENERADO:
+   GOREMAL_PIDM: null
+   GOREMAL_EMAL_CODE: COIN18SAM1
+   GOREMAL_EMAIL_ADDRESS: COIN18SAM1
+   GOREMAL_STATUS_IND: COIN18SAM1
+   GOREMAL_PREFERRED_IND: 10
+   GOREMAL_ACTIVITY_DATE: SYSDATE
+   GOREMAL_USER_ID: 10
+   GOREMAL_COMMENT: 3
+   GOREMAL_DISP_WEB_IND: 00100
+   GOREMAL_DATA_ORIGIN: MATE
+   GOREMAL_SURROGATE_ID: null
+   GOREMAL_VERSION: null
+   GOREMAL_VPDI_CODE: PLAN2018SPCI
+────────────────────────────────────────────────────────────
+🔍 DEBUG: ReverseMapping extraído: {
+  GOREMAL_PIDM: 'AREA',
+  GOREMAL_EMAL_CODE: 'AREA',
+  GOREMAL_EMAIL_ADDRESS: 'AREA',
+  GOREMAL_STATUS_IND: 'AREA',
+  GOREMAL_PREFERRED_IND: 'CICLO',
+  GOREMAL_ACTIVITY_DATE: 'SYSDATE',
+  GOREMAL_USER_ID: 'CICLO',
+  GOREMAL_COMMENT: 'CREDITOS',
+  GOREMAL_DISP_WEB_IND: 'CURSO',
+  GOREMAL_DATA_ORIGIN: 'MATERIA',
+  GOREMAL_SURROGATE_ID: 'NOMBRE CORTO DEL CURSO',
+  GOREMAL_VERSION: 'NOMBRE CURSO',
+  GOREMAL_VPDI_CODE: 'PROGRAMA LIC'
+}
+🔍 DEBUG: Procesando fila con headers: [AREA, MATERIA, CURSO, NOMBRE CURSO, NOMBRE CORTO DEL CURSO, CICLO, CREDITOS, NUMERO  DE CURSOS, PROGRAMA BANNER, PROGRAMA LIC]
+🔍 DEBUG: Datos de la fila: [COIN18SAM1, PRNG, 01000, FUNDAMENTOS DE GESTION EMPRESARIAL, FUND GESTION EMPRESARIAL, 10, 2, 1, CSPTICOINSS3, PLAN2018SPCI]
+🔗 Procesando GOREMAL_PIDM ← AREA
+   🔍 Buscando header "AREA" en posición 0
+   📋 Valor encontrado en posición [0]: "COIN18SAM1"
+   ✅ GOREMAL_PIDM = "null" (desde header "AREA")
+🔗 Procesando GOREMAL_EMAL_CODE ← AREA
+   🔍 Buscando header "AREA" en posición 0
+   📋 Valor encontrado en posición [0]: "COIN18SAM1"
+   ✅ GOREMAL_EMAL_CODE = "COIN18SAM1" (desde header "AREA")
+🔗 Procesando GOREMAL_EMAIL_ADDRESS ← AREA
+   🔍 Buscando header "AREA" en posición 0
+   📋 Valor encontrado en posición [0]: "COIN18SAM1"
+   ✅ GOREMAL_EMAIL_ADDRESS = "COIN18SAM1" (desde header "AREA")
+🔗 Procesando GOREMAL_STATUS_IND ← AREA
+   🔍 Buscando header "AREA" en posición 0
+   📋 Valor encontrado en posición [0]: "COIN18SAM1"
+   ✅ GOREMAL_STATUS_IND = "COIN18SAM1" (desde header "AREA")
+🔗 Procesando GOREMAL_PREFERRED_IND ← CICLO
+   🔍 Buscando header "CICLO" en posición 5
+   📋 Valor encontrado en posición [5]: "10"
+   ✅ GOREMAL_PREFERRED_IND = "10" (desde header "CICLO")
+🔗 Procesando GOREMAL_ACTIVITY_DATE ← SYSDATE
+   ✅ GOREMAL_ACTIVITY_DATE = SYSDATE
+🔗 Procesando GOREMAL_USER_ID ← CICLO
+   🔍 Buscando header "CICLO" en posición 5
+   📋 Valor encontrado en posición [5]: "10"
+   ✅ GOREMAL_USER_ID = "10" (desde header "CICLO")
+🔗 Procesando GOREMAL_COMMENT ← CREDITOS
+   🔍 Buscando header "CREDITOS" en posición 6
+   📋 Valor encontrado en posición [6]: "2"
+   ✅ GOREMAL_COMMENT = "2" (desde header "CREDITOS")
+🔗 Procesando GOREMAL_DISP_WEB_IND ← CURSO
+   🔍 Buscando header "CURSO" en posición 2
+   📋 Valor encontrado en posición [2]: "01000"
+   ✅ GOREMAL_DISP_WEB_IND = "01000" (desde header "CURSO")
+🔗 Procesando GOREMAL_DATA_ORIGIN ← MATERIA
+   🔍 Buscando header "MATERIA" en posición 1
+   📋 Valor encontrado en posición [1]: "PRNG"
+   ✅ GOREMAL_DATA_ORIGIN = "PRNG" (desde header "MATERIA")
+🔗 Procesando GOREMAL_SURROGATE_ID ← NOMBRE CORTO DEL CURSO
+   🔍 Buscando header "NOMBRE CORTO DEL CURSO" en posición 4
+   📋 Valor encontrado en posición [4]: "FUND GESTION EMPRESARIAL"
+   ✅ GOREMAL_SURROGATE_ID = "null" (desde header "NOMBRE CORTO DEL CURSO")
+🔗 Procesando GOREMAL_VERSION ← NOMBRE CURSO
+   🔍 Buscando header "NOMBRE CURSO" en posición 3
+   📋 Valor encontrado en posición [3]: "FUNDAMENTOS DE GESTION EMPRESARIAL"
+   ✅ GOREMAL_VERSION = "null" (desde header "NOMBRE CURSO")
+🔗 Procesando GOREMAL_VPDI_CODE ← PROGRAMA LIC
+   🔍 Buscando header "PROGRAMA LIC" en posición 9
+   📋 Valor encontrado en posición [9]: "PLAN2018SPCI"
+   ✅ GOREMAL_VPDI_CODE = "PLAN2018SPCI" (desde header "PROGRAMA LIC")
+
+✅ REGISTRO FINAL GENERADO:
+   GOREMAL_PIDM: null
+   GOREMAL_EMAL_CODE: COIN18SAM1
+   GOREMAL_EMAIL_ADDRESS: COIN18SAM1
+   GOREMAL_STATUS_IND: COIN18SAM1
+   GOREMAL_PREFERRED_IND: 10
+   GOREMAL_ACTIVITY_DATE: SYSDATE
+   GOREMAL_USER_ID: 10
+   GOREMAL_COMMENT: 2
+   GOREMAL_DISP_WEB_IND: 01000
+   GOREMAL_DATA_ORIGIN: PRNG
+   GOREMAL_SURROGATE_ID: null
+   GOREMAL_VERSION: null
+   GOREMAL_VPDI_CODE: PLAN2018SPCI
+────────────────────────────────────────────────────────────
+🔍 DEBUG: ReverseMapping extraído: {
+  GOREMAL_PIDM: 'AREA',
+  GOREMAL_EMAL_CODE: 'AREA',
+  GOREMAL_EMAIL_ADDRESS: 'AREA',
+  GOREMAL_STATUS_IND: 'AREA',
+  GOREMAL_PREFERRED_IND: 'CICLO',
+  GOREMAL_ACTIVITY_DATE: 'SYSDATE',
+  GOREMAL_USER_ID: 'CICLO',
+  GOREMAL_COMMENT: 'CREDITOS',
+  GOREMAL_DISP_WEB_IND: 'CURSO',
+  GOREMAL_DATA_ORIGIN: 'MATERIA',
+  GOREMAL_SURROGATE_ID: 'NOMBRE CORTO DEL CURSO',
+  GOREMAL_VERSION: 'NOMBRE CURSO',
+  GOREMAL_VPDI_CODE: 'PROGRAMA LIC'
+}
+🔍 DEBUG: Procesando fila con headers: [AREA, MATERIA, CURSO, NOMBRE CURSO, NOMBRE CORTO DEL CURSO, CICLO, CREDITOS, NUMERO  DE CURSOS, PROGRAMA BANNER, PROGRAMA LIC]
+🔍 DEBUG: Datos de la fila: [COIN18SAM1, PROG, 01000, ARQUITECTURA DE ENTORNOS WEB, ARQUITECTURA DE ENTORNOS WEB, 10, 3, 1, CSPTICOINSS3, PLAN2018SPCI]
+🔗 Procesando GOREMAL_PIDM ← AREA
+   🔍 Buscando header "AREA" en posición 0
+   📋 Valor encontrado en posición [0]: "COIN18SAM1"
+   ✅ GOREMAL_PIDM = "null" (desde header "AREA")
+🔗 Procesando GOREMAL_EMAL_CODE ← AREA
+   🔍 Buscando header "AREA" en posición 0
+   📋 Valor encontrado en posición [0]: "COIN18SAM1"
+   ✅ GOREMAL_EMAL_CODE = "COIN18SAM1" (desde header "AREA")
+🔗 Procesando GOREMAL_EMAIL_ADDRESS ← AREA
+   🔍 Buscando header "AREA" en posición 0
+   📋 Valor encontrado en posición [0]: "COIN18SAM1"
+   ✅ GOREMAL_EMAIL_ADDRESS = "COIN18SAM1" (desde header "AREA")
+🔗 Procesando GOREMAL_STATUS_IND ← AREA
+   🔍 Buscando header "AREA" en posición 0
+   📋 Valor encontrado en posición [0]: "COIN18SAM1"
+   ✅ GOREMAL_STATUS_IND = "COIN18SAM1" (desde header "AREA")
+🔗 Procesando GOREMAL_PREFERRED_IND ← CICLO
+   🔍 Buscando header "CICLO" en posición 5
+   📋 Valor encontrado en posición [5]: "10"
+   ✅ GOREMAL_PREFERRED_IND = "10" (desde header "CICLO")
+🔗 Procesando GOREMAL_ACTIVITY_DATE ← SYSDATE
+   ✅ GOREMAL_ACTIVITY_DATE = SYSDATE
+🔗 Procesando GOREMAL_USER_ID ← CICLO
+   🔍 Buscando header "CICLO" en posición 5
+   📋 Valor encontrado en posición [5]: "10"
+   ✅ GOREMAL_USER_ID = "10" (desde header "CICLO")
+🔗 Procesando GOREMAL_COMMENT ← CREDITOS
+   🔍 Buscando header "CREDITOS" en posición 6
+   📋 Valor encontrado en posición [6]: "3"
+   ✅ GOREMAL_COMMENT = "3" (desde header "CREDITOS")
+🔗 Procesando GOREMAL_DISP_WEB_IND ← CURSO
+   🔍 Buscando header "CURSO" en posición 2
+   📋 Valor encontrado en posición [2]: "01000"
+   ✅ GOREMAL_DISP_WEB_IND = "01000" (desde header "CURSO")
+🔗 Procesando GOREMAL_DATA_ORIGIN ← MATERIA
+   🔍 Buscando header "MATERIA" en posición 1
+   📋 Valor encontrado en posición [1]: "PROG"
+   ✅ GOREMAL_DATA_ORIGIN = "PROG" (desde header "MATERIA")
+🔗 Procesando GOREMAL_SURROGATE_ID ← NOMBRE CORTO DEL CURSO
+   🔍 Buscando header "NOMBRE CORTO DEL CURSO" en posición 4
+   📋 Valor encontrado en posición [4]: "ARQUITECTURA DE ENTORNOS WEB"
+   ✅ GOREMAL_SURROGATE_ID = "null" (desde header "NOMBRE CORTO DEL CURSO")
+🔗 Procesando GOREMAL_VERSION ← NOMBRE CURSO
+   🔍 Buscando header "NOMBRE CURSO" en posición 3
+   📋 Valor encontrado en posición [3]: "ARQUITECTURA DE ENTORNOS WEB"
+   ✅ GOREMAL_VERSION = "null" (desde header "NOMBRE CURSO")
+🔗 Procesando GOREMAL_VPDI_CODE ← PROGRAMA LIC
+   🔍 Buscando header "PROGRAMA LIC" en posición 9
+   📋 Valor encontrado en posición [9]: "PLAN2018SPCI"
+   ✅ GOREMAL_VPDI_CODE = "PLAN2018SPCI" (desde header "PROGRAMA LIC")
+
+✅ REGISTRO FINAL GENERADO:
+   GOREMAL_PIDM: null
+   GOREMAL_EMAL_CODE: COIN18SAM1
+   GOREMAL_EMAIL_ADDRESS: COIN18SAM1
+   GOREMAL_STATUS_IND: COIN18SAM1
+   GOREMAL_PREFERRED_IND: 10
+   GOREMAL_ACTIVITY_DATE: SYSDATE
+   GOREMAL_USER_ID: 10
+   GOREMAL_COMMENT: 3
+   GOREMAL_DISP_WEB_IND: 01000
+   GOREMAL_DATA_ORIGIN: PROG
+   GOREMAL_SURROGATE_ID: null
+   GOREMAL_VERSION: null
+   GOREMAL_VPDI_CODE: PLAN2018SPCI
+────────────────────────────────────────────────────────────
+🔍 DEBUG: ReverseMapping extraído: {
+  GOREMAL_PIDM: 'AREA',
+  GOREMAL_EMAL_CODE: 'AREA',
+  GOREMAL_EMAIL_ADDRESS: 'AREA',
+  GOREMAL_STATUS_IND: 'AREA',
+  GOREMAL_PREFERRED_IND: 'CICLO',
+  GOREMAL_ACTIVITY_DATE: 'SYSDATE',
+  GOREMAL_USER_ID: 'CICLO',
+  GOREMAL_COMMENT: 'CREDITOS',
+  GOREMAL_DISP_WEB_IND: 'CURSO',
+  GOREMAL_DATA_ORIGIN: 'MATERIA',
+  GOREMAL_SURROGATE_ID: 'NOMBRE CORTO DEL CURSO',
+  GOREMAL_VERSION: 'NOMBRE CURSO',
+  GOREMAL_VPDI_CODE: 'PROGRAMA LIC'
+}
+🔍 DEBUG: Procesando fila con headers: [AREA, MATERIA, CURSO, NOMBRE CURSO, NOMBRE CORTO DEL CURSO, CICLO, CREDITOS, NUMERO  DE CURSOS, PROGRAMA BANNER, PROGRAMA LIC]
+🔍 DEBUG: Datos de la fila: [COIN18SAM1, STPI, 01000, TECNOLOGIAS DE LA INFORMACION, TECNOLOGIAS DE LA INFORMACION, 10, 3, 1, CSPTICOINSS3, PLAN2018SPCI]
+🔗 Procesando GOREMAL_PIDM ← AREA
+   🔍 Buscando header "AREA" en posición 0
+   📋 Valor encontrado en posición [0]: "COIN18SAM1"
+   ✅ GOREMAL_PIDM = "null" (desde header "AREA")
+🔗 Procesando GOREMAL_EMAL_CODE ← AREA
+   🔍 Buscando header "AREA" en posición 0
+   📋 Valor encontrado en posición [0]: "COIN18SAM1"
+   ✅ GOREMAL_EMAL_CODE = "COIN18SAM1" (desde header "AREA")
+🔗 Procesando GOREMAL_EMAIL_ADDRESS ← AREA
+   🔍 Buscando header "AREA" en posición 0
+   📋 Valor encontrado en posición [0]: "COIN18SAM1"
+   ✅ GOREMAL_EMAIL_ADDRESS = "COIN18SAM1" (desde header "AREA")
+🔗 Procesando GOREMAL_STATUS_IND ← AREA
+   🔍 Buscando header "AREA" en posición 0
+   📋 Valor encontrado en posición [0]: "COIN18SAM1"
+   ✅ GOREMAL_STATUS_IND = "COIN18SAM1" (desde header "AREA")
+🔗 Procesando GOREMAL_PREFERRED_IND ← CICLO
+   🔍 Buscando header "CICLO" en posición 5
+   📋 Valor encontrado en posición [5]: "10"
+   ✅ GOREMAL_PREFERRED_IND = "10" (desde header "CICLO")
+🔗 Procesando GOREMAL_ACTIVITY_DATE ← SYSDATE
+   ✅ GOREMAL_ACTIVITY_DATE = SYSDATE
+🔗 Procesando GOREMAL_USER_ID ← CICLO
+   🔍 Buscando header "CICLO" en posición 5
+   📋 Valor encontrado en posición [5]: "10"
+   ✅ GOREMAL_USER_ID = "10" (desde header "CICLO")
+🔗 Procesando GOREMAL_COMMENT ← CREDITOS
+   🔍 Buscando header "CREDITOS" en posición 6
+   📋 Valor encontrado en posición [6]: "3"
+   ✅ GOREMAL_COMMENT = "3" (desde header "CREDITOS")
+🔗 Procesando GOREMAL_DISP_WEB_IND ← CURSO
+   🔍 Buscando header "CURSO" en posición 2
+   📋 Valor encontrado en posición [2]: "01000"
+   ✅ GOREMAL_DISP_WEB_IND = "01000" (desde header "CURSO")
+🔗 Procesando GOREMAL_DATA_ORIGIN ← MATERIA
+   🔍 Buscando header "MATERIA" en posición 1
+   📋 Valor encontrado en posición [1]: "STPI"
+   ✅ GOREMAL_DATA_ORIGIN = "STPI" (desde header "MATERIA")
+🔗 Procesando GOREMAL_SURROGATE_ID ← NOMBRE CORTO DEL CURSO
+   🔍 Buscando header "NOMBRE CORTO DEL CURSO" en posición 4
+   📋 Valor encontrado en posición [4]: "TECNOLOGIAS DE LA INFORMACION"
+   ✅ GOREMAL_SURROGATE_ID = "null" (desde header "NOMBRE CORTO DEL CURSO")
+🔗 Procesando GOREMAL_VERSION ← NOMBRE CURSO
+   🔍 Buscando header "NOMBRE CURSO" en posición 3
+   📋 Valor encontrado en posición [3]: "TECNOLOGIAS DE LA INFORMACION"
+   ✅ GOREMAL_VERSION = "null" (desde header "NOMBRE CURSO")
+🔗 Procesando GOREMAL_VPDI_CODE ← PROGRAMA LIC
+   🔍 Buscando header "PROGRAMA LIC" en posición 9
+   📋 Valor encontrado en posición [9]: "PLAN2018SPCI"
+   ✅ GOREMAL_VPDI_CODE = "PLAN2018SPCI" (desde header "PROGRAMA LIC")
+
+✅ REGISTRO FINAL GENERADO:
+   GOREMAL_PIDM: null
+   GOREMAL_EMAL_CODE: COIN18SAM1
+   GOREMAL_EMAIL_ADDRESS: COIN18SAM1
+   GOREMAL_STATUS_IND: COIN18SAM1
+   GOREMAL_PREFERRED_IND: 10
+   GOREMAL_ACTIVITY_DATE: SYSDATE
+   GOREMAL_USER_ID: 10
+   GOREMAL_COMMENT: 3
+   GOREMAL_DISP_WEB_IND: 01000
+   GOREMAL_DATA_ORIGIN: STPI
+   GOREMAL_SURROGATE_ID: null
+   GOREMAL_VERSION: null
+   GOREMAL_VPDI_CODE: PLAN2018SPCI
+────────────────────────────────────────────────────────────
+✅ Hoja "COIN18SAM1": 6 INSERTs válidos generados
+
+📄 Archivo SQL consolidado generado: insert_general_goremal_CONSOLIDATED_13-06-2025_181621.sql
+
+🎉 Procesamiento completado!
+📊 RESUMEN DEL PROCESAMIENTO MASIVO:
+📋 Tabla destino: general.goremal
+📁 Archivos procesados: 1/1
+❌ Archivos fallidos: 0
+📊 Filas totales: 32
+✅ Filas válidas: 32
+❌ Filas con errores: 0
+📄 Archivos SQL generados: 1
+
+🎉 PROCESAMIENTO COMPLETADO:
+   📁 Archivos procesados: 1/1
+   📄 Filas válidas: 32/32
+   📝 Archivos SQL generados: 1
+[34mℹ[39m … 🚀 Resultado del Procesamiento Masivo: ● Archivos procesados: 1/1
+[31m✖[39m Archivos fallidos: 0
+[34mℹ[39m Total de filas: 32
+[32m✔[39m Filas válidas: 32
+[31m✖[39m Filas con errores: 0
+📊 Archivos generados: 1
+[34mℹ[39m ● 📄 Archivos SQL generados: ● 1. insert_general_goremal_CONSOLIDATED_13-06-2025_181621.sql
+[34mℹ[39m [34mℹ[39m 📊 Detalles por archivo:
+📁 arregla.xlsx:
+   ✅ Éxito: Sí
+   📋 COIN18SA01: 6/6 filas procesadas
+   📋 COIN18SA02: 7/7 filas procesadas
+   📋 COIN18SA03: 7/7 filas procesadas
+   📋 COIN18SA04: 6/6 filas procesadas
+   📋 COIN18SAM1: 6/6 filas procesadas
+
+[34mℹ[39m [34mℹ[39m 📝 Resumen: 📊 RESUMEN DEL PROCESAMIENTO MASIVO:
+📋 Tabla destino: general.goremal
+📁 Archivos procesados: 1/1
+❌ Archivos fallidos: 0
+📊 Filas totales: 32
+✅ Filas válidas: 32
+❌ Filas con errores: 0
+📄 Archivos SQL generados: 1
