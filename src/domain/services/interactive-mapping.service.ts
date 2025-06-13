@@ -58,29 +58,34 @@ export class InteractiveMappingService {
     await this.showDataPreview(fileInfos, allHeaders);
 
     // 4. Seleccionar tipo de mapeo
-    const mappingType = await this.selectMappingType();
-
-    // 5. Crear mapeo según el tipo seleccionado
+    const mappingType = await this.selectMappingType();    // 5. Crear mapeo según el tipo seleccionado
     let columnMapping: ColumnMapping = {};
+    let valueFormatOptions: ValueFormatOptions = {};
 
     switch (mappingType) {
       case "automatic":
-        columnMapping = await this.createAutomaticMapping(
+        const autoResult = await this.createAutomaticMapping(
           allHeaders,
           tableStructure
         );
+        columnMapping = autoResult.columnMapping;
+        valueFormatOptions = autoResult.valueFormatOptions;
         break;
       case "manual":
-        columnMapping = await this.createManualMapping(
+        const manualResult = await this.createManualMapping(
           allHeaders,
           tableStructure
         );
+        columnMapping = manualResult.columnMapping;
+        valueFormatOptions = manualResult.valueFormatOptions;
         break;
       case "mixed":
-        columnMapping = await this.createMixedMapping(
+        const mixedResult = await this.createMixedMapping(
           allHeaders,
           tableStructure
         );
+        columnMapping = mixedResult.columnMapping;
+        valueFormatOptions = mixedResult.valueFormatOptions;
         break;
     }
 
@@ -89,10 +94,9 @@ export class InteractiveMappingService {
 
     if (!confirmed) {
       throw new Error("Mapeo cancelado por el usuario");
-    }
-
-    return {
+    }    return {
       columnMapping,
+      valueFormatOptions,
       tableStructure,
       mappingType,
       totalHeaders: allHeaders.length,
@@ -232,15 +236,14 @@ export class InteractiveMappingService {
   }
   /**
    * Crea mapeo automático basado en similitud de nombres con información detallada
-   */
-  private async createAutomaticMapping(
+   */  private async createAutomaticMapping(
     headers: string[],
     tableStructure: TableColumn[]
-  ): Promise<ColumnMapping> {
-    console.log("\n🤖 MAPEO AUTOMÁTICO POR SIMILITUD");
+  ): Promise<MappingResult> {    console.log("\n🤖 MAPEO AUTOMÁTICO POR SIMILITUD");
     console.log("═".repeat(60));
 
     const mapping: ColumnMapping = {};
+    const valueFormatOptions: ValueFormatOptions = {};
     const matchLog: Array<{
       header: string;
       column?: string;
@@ -293,6 +296,17 @@ export class InteractiveMappingService {
       }
 
       mapping[header] = bestMatch ? bestMatch.column : null;
+      
+      // Configurar formato automático para el mapping
+      if (bestMatch) {
+        const column = tableStructure.find(col => col.columnName === bestMatch.column);
+        if (column) {
+          valueFormatOptions[bestMatch.column] = {
+            source: header,
+            format: 'auto'
+          };
+        }
+      }
     }
 
     // Mostrar resultados del mapeo automático
@@ -330,19 +344,20 @@ export class InteractiveMappingService {
       `   • Mapeados automáticamente: ${mappedCount} (${Math.round(
         (mappedCount / totalCount) * 100
       )}%)`
-    );
-    console.log(`   • Sin mapear: ${totalCount - mappedCount}`);
+    );    console.log(`   • Sin mapear: ${totalCount - mappedCount}`);
 
-    return mapping;
+    return {
+      columnMapping: mapping,
+      valueFormatOptions
+    };
   }
   /**
    * Crea mapeo manual columna por columna - NUEVA LÓGICA INVERTIDA
    * Mapea cada columna Oracle a un source (header del archivo o valor constante)
-   */
-  private async createManualMapping(
+   */  private async createManualMapping(
     headers: string[],
     tableStructure: TableColumn[]
-  ): Promise<ColumnMapping> {
+  ): Promise<MappingResult> {
     console.log("\n👤 MAPEO MANUAL INTERACTIVO - COLUMNA POR COLUMNA");
     console.log("═".repeat(70));
     console.log(
@@ -364,9 +379,8 @@ export class InteractiveMappingService {
     console.log("   " + "─".repeat(50));
     headers.forEach((header, idx) => {
       console.log(`   ${String(idx + 1).padStart(2, "0")}. "${header}"`);
-    });
-
-    const mapping: ColumnMapping = {};
+    });    const mapping: ColumnMapping = {};
+    const valueFormatOptions: ValueFormatOptions = {};
     const reverseMapping: { [oracleColumn: string]: string } = {}; // Oracle column -> source
 
     console.log(`\n🔄 Configurando ${tableStructure.length} columnas Oracle:`);
@@ -540,9 +554,11 @@ export class InteractiveMappingService {
           console.log(`🔄 REUTILIZACIÓN PERMITIDA: se permite mapeo múltiple`);
           console.log(`✅ Este mismo valor se usará para ambas columnas`);
           // NO pedir confirmación, permitir directamente
-        }
-        reverseMapping[column.columnName] = headerName;
+        }        reverseMapping[column.columnName] = headerName;
         console.log(`📋 DESDE ARCHIVO: ${column.columnName} ← "${headerName}"`);
+
+        // 🎯 NUEVA FUNCIONALIDAD: Elegir formato de valor (string vs number)
+        await this.selectValueFormat(column, headerName, valueFormatOptions);
 
         // DEBUG: Mostrar estado actual del reverseMapping
         console.log(`🔍 Estado actual del reverseMapping:`);
@@ -553,31 +569,29 @@ export class InteractiveMappingService {
     }
 
     // ✅ FLUJO ÚNICO Y LIMPIO - Solo usar reverseMapping
-    mapping["__REVERSE_MAPPING__"] = JSON.stringify(reverseMapping);
-
-    console.log("\n🔍 MAPEO FINAL:");
+    mapping["__REVERSE_MAPPING__"] = JSON.stringify(reverseMapping);    console.log("\n🔍 MAPEO FINAL:");
     Object.keys(reverseMapping).forEach((oracleCol) => {
       console.log(`   ${oracleCol} ← ${reverseMapping[oracleCol]}`);
     });
 
-    return mapping;
-
-    return mapping;
+    return {
+      columnMapping: mapping,
+      valueFormatOptions
+    };
   }
   /**
    * Crea mapeo mixto (automático + manual para conflictos) con información detallada
-   */
-  private async createMixedMapping(
+   */  private async createMixedMapping(
     headers: string[],
     tableStructure: TableColumn[]
-  ): Promise<ColumnMapping> {
+  ): Promise<MappingResult> {
     console.log("\n🔀 MAPEO MIXTO (AUTOMÁTICO + MANUAL)");
     console.log("═".repeat(60));
     console.log("   1️⃣ Primero se intentará mapeo automático");
-    console.log("   2️⃣ Luego revisión manual de casos pendientes");
-
-    // Primero hacer mapeo automático
-    let mapping = await this.createAutomaticMapping(headers, tableStructure);
+    console.log("   2️⃣ Luego revisión manual de casos pendientes");    // Primero hacer mapeo automático
+    const autoResult = await this.createAutomaticMapping(headers, tableStructure);
+    let mapping = autoResult.columnMapping;
+    let valueFormatOptions = autoResult.valueFormatOptions;
 
     // Encontrar headers sin mapear y columnas requeridas sin mapear
     const unmappedHeaders = headers.filter((h) => !mapping[h]);
@@ -623,15 +637,16 @@ export class InteractiveMappingService {
 
         const reviewUnmapped = await this.userInterface.confirmAction(
           `\n¿Revisar manualmente los ${unmappedHeaders.length} headers sin mapear?`
-        );
-
-        if (reviewUnmapped) {
+        );        if (reviewUnmapped) {
           console.log("\n👤 INICIANDO MAPEO MANUAL PARA HEADERS PENDIENTES...");
-          const manualMapping = await this.createManualMapping(
+          const manualResult = await this.createManualMapping(
             unmappedHeaders,
             tableStructure
           );
-          mapping = { ...mapping, ...manualMapping };
+          
+          // Combinar los mappings
+          mapping = { ...mapping, ...manualResult.columnMapping };
+          valueFormatOptions = { ...valueFormatOptions, ...manualResult.valueFormatOptions };
 
           // Mostrar estadísticas finales
           const finalMappedCount = Object.values(mapping).filter(
@@ -651,10 +666,12 @@ export class InteractiveMappingService {
       }
     } else {
       console.log("\n🎉 ¡MAPEO AUTOMÁTICO COMPLETO!");
-      console.log("   Todos los headers fueron mapeados automáticamente");
-    }
+      console.log("   Todos los headers fueron mapeados automáticamente");    }
 
-    return mapping;
+    return {
+      columnMapping: mapping,
+      valueFormatOptions
+    };
   }
 
   /**
@@ -935,11 +952,69 @@ export class InteractiveMappingService {
     const distance = matrix[len1][len2];
     return 1 - distance / maxLength;
   }
+
+  /**
+   * Permite al usuario elegir el formato del valor (string vs number)
+   */
+  private async selectValueFormat(
+    column: TableColumn,
+    headerName: string,
+    valueFormatOptions: ValueFormatOptions
+  ): Promise<void> {
+    // Solo preguntar por formato si la columna puede ser NUMBER o VARCHAR2
+    const isNumberColumn = column.dataType === 'NUMBER';
+    const isStringColumn = column.dataType.startsWith('VARCHAR2') || column.dataType.startsWith('CHAR');
+    
+    if (!isNumberColumn && !isStringColumn) {
+      // Para otros tipos (DATE, etc.), usar formato automático
+      valueFormatOptions[column.columnName] = {
+        source: headerName,
+        format: 'auto'
+      };
+      return;
+    }    console.log(`\n🎯 FORMATO DE VALOR para ${column.columnName}`);
+    console.log(`   Header: "${headerName}"`);
+    console.log(`   Tipo Oracle: ${column.dataType}`);
+    console.log(`   ¿Cómo quieres que aparezca este valor en el INSERT?`);
+    
+    const formatChoices: SelectOption[] = [
+      {
+        value: "auto",
+        label: "🤖 Automático",
+        description: "Detectar automáticamente según el tipo de columna"
+      },
+      {
+        value: "string",
+        label: "📝 Como STRING ('1')",
+        description: "Forzar valor entre comillas simples en el INSERT"
+      },
+      {
+        value: "number",
+        label: "🔢 Como NUMBER (1)",
+        description: "Forzar valor numérico sin comillas en el INSERT"
+      }
+    ];
+
+    const selectedFormat = await this.userInterface.selectOption(formatChoices, false);
+
+    valueFormatOptions[column.columnName] = {
+      source: headerName,
+      format: selectedFormat as 'string' | 'number' | 'auto'
+    };
+
+    // Mostrar feedback al usuario
+    const example = selectedFormat === 'string' ? "'1234'" : 
+                   selectedFormat === 'number' ? "1234" : 
+                   "auto (depende del tipo)";
+    
+    console.log(`✅ Formato elegido: ${example}`);
+  }
 }
 
 // Interfaces
 export interface InteractiveMappingResult {
   columnMapping: ColumnMapping;
+  valueFormatOptions: ValueFormatOptions;
   tableStructure: TableColumn[];
   mappingType: MappingType;
   totalHeaders: number;
@@ -953,10 +1028,22 @@ export interface ColumnMapping {
   [header: string]: string | null;
 }
 
+export interface ValueFormatOptions {
+  [oracleColumn: string]: {
+    source: string;           // header o valor constante
+    format: 'string' | 'number' | 'auto'; // formato deseado
+  };
+}
+
 export interface TableColumn {
   columnName: string;
   dataType: string;
   dataLength?: number;
   nullable: string;
   defaultValue?: string;
+}
+
+export interface MappingResult {
+  columnMapping: ColumnMapping;
+  valueFormatOptions: ValueFormatOptions;
 }

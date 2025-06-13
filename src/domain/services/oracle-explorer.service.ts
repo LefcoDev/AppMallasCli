@@ -6,6 +6,7 @@ import {
   ValidationResult,
   DatabaseInfo,
 } from "../repositories/oracle.repository";
+import { ValueFormatOptions } from "./interactive-mapping.service";
 
 export interface OracleExplorerService {
   // Table exploration
@@ -108,6 +109,7 @@ export interface BulkProcessOptions {
   selectedSheets?: string[];
   columnMapping?: ColumnMapping;
   predefinedMapping?: ColumnMapping; // Mapeo predefinido desde InteractiveMappingService
+  valueFormatOptions?: ValueFormatOptions; // Opciones de formato (string vs number)
   fileTypes: ("xlsx" | "csv" | "txt")[];
 }
 

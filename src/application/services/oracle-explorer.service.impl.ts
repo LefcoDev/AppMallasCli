@@ -28,6 +28,7 @@ import inquirer from "inquirer";
 import { glob } from "glob";
 import { ControllerUtils } from "../../presentation/utils/controller.utils";
 import { DebugLogger } from "../../shared/utils/debug-logger";
+import { ValueFormatOptions } from "../../domain/services/interactive-mapping.service";
 
 export class OracleExplorerServiceImpl implements OracleExplorerService {
   private static sequenceCounters: { [key: string]: number } = {};
@@ -904,22 +905,21 @@ export class OracleExplorerServiceImpl implements OracleExplorerService {
           `⚠️ Hoja "${sheetName}" no encontrada en ${fileInfo.fileName}`
         );
         continue;
-      }
-
-      const sheetResult = await this.processExcelSheet(
+      }      const sheetResult = await this.processExcelSheet(
         workbook,
         sheetName,
         columnMapping,
-        tableStructure
+        tableStructure,
+        options.valueFormatOptions
       );
       result.sheets.push(sheetResult);
     }
-  }
-  private async processExcelSheet(
+  }  private async processExcelSheet(
     workbook: XLSX.WorkBook,
     sheetName: string,
     columnMapping: ColumnMapping,
-    tableStructure: TableColumn[]
+    tableStructure: TableColumn[],
+    valueFormatOptions?: ValueFormatOptions
   ): Promise<SheetProcessingResult> {
     const worksheet = workbook.Sheets[sheetName];
     // ✅ MEJORAR LECTURA DE EXCEL: mejor manejo de celdas vacías
@@ -976,12 +976,12 @@ export class OracleExplorerServiceImpl implements OracleExplorerService {
         return cell.toString().trim();
       });
 
-      try {
-        const mappedRecord = await this.mapRowToRecordWithDebug(
+      try {        const mappedRecord = await this.mapRowToRecordWithDebug(
           normalizedRow,
           headers,
           columnMapping,
-          tableStructure
+          tableStructure,
+          valueFormatOptions
         );
         if (mappedRecord && Object.keys(mappedRecord).length > 0) {
           processedData.push(mappedRecord);
@@ -1356,23 +1356,41 @@ export class OracleExplorerServiceImpl implements OracleExplorerService {
     }
 
     return specialValue;
-  }
-  private async processValueForColumnWithDebug(
+  }  private async processValueForColumnWithDebug(
     value: any,
     column: TableColumn,
-    debugLogger: DebugLogger
-  ): Promise<any> {
-    await debugLogger.log(
+    debugLogger: DebugLogger,
+    formatOptions?: { format: 'string' | 'number' | 'auto' }
+  ): Promise<any> {    await debugLogger.log(
       `🔧 processValueForColumn: entrada="${value}", tipo="${typeof value}", columna="${
         column.columnName
       }", dataType="${column.dataType}"`
     );
+
+    if (formatOptions) {
+      await debugLogger.log(`🎯 Formato especificado: ${formatOptions.format}`);
+    }
 
     if (value === null || value === undefined || value === "") {
       await debugLogger.log(`🔧 Valor vacío detectado, retornando null`);
       return null;
     }
 
+    // 🎯 NUEVA LÓGICA: Aplicar formato especificado por el usuario
+    if (formatOptions && formatOptions.format !== 'auto') {
+      if (formatOptions.format === 'string') {
+        const forcedString = String(value);
+        await debugLogger.log(`🎯 FORZADO COMO STRING: "${forcedString}" (formato: ${formatOptions.format})`);
+        return forcedString;
+      } else if (formatOptions.format === 'number') {
+        const numValue = Number(value);
+        const forcedNumber = isNaN(numValue) ? null : numValue;
+        await debugLogger.log(`🎯 FORZADO COMO NUMBER: ${forcedNumber} (formato: ${formatOptions.format}, original: "${value}")`);
+        return forcedNumber;
+      }
+    }
+
+    // Procesar según el tipo de columna Oracle (comportamiento automático)
     switch (column.dataType.toUpperCase()) {
       case "VARCHAR2":
       case "CHAR":
@@ -1621,12 +1639,12 @@ export class OracleExplorerServiceImpl implements OracleExplorerService {
 
     // Para cualquier otro tipo, convertir a string y escapar
     return `'${String(value).replace(/'/g, "''")}'`;
-  }
-  private async mapRowToRecordWithDebug(
+  }  private async mapRowToRecordWithDebug(
     row: any[],
     headers: string[],
     columnMapping: ColumnMapping,
-    tableStructure: TableColumn[]
+    tableStructure: TableColumn[],
+    valueFormatOptions?: ValueFormatOptions
   ): Promise<Record<string, any> | null> {
     const debugLogger = DebugLogger.getInstance();
     const record: Record<string, any> = {};
@@ -1703,12 +1721,14 @@ export class OracleExplorerServiceImpl implements OracleExplorerService {
             await debugLogger.log(`  Nullable: ${column.nullable}`);
             await debugLogger.log(
               `  Valor a procesar: "${value}" (tipo: ${typeof value})`
-            );
-
+            );            // Obtener opciones de formato si están disponibles
+            const formatOptions = valueFormatOptions?.[oracleColumn];
+            
             const processedValue = await this.processValueForColumnWithDebug(
               value,
               column,
-              debugLogger
+              debugLogger,
+              formatOptions
             );
             record[oracleColumn] = processedValue;
 
