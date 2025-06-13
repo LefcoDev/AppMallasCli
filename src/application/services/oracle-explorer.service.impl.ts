@@ -1648,9 +1648,17 @@ export class OracleExplorerServiceImpl implements OracleExplorerService {
   ): Promise<Record<string, any> | null> {
     const debugLogger = DebugLogger.getInstance();
     const record: Record<string, any> = {};
-    let hasValidData = false;
+    let hasValidData = false;    await debugLogger.logSection(`PROCESANDO NUEVA FILA`);
 
-    await debugLogger.logSection(`PROCESANDO NUEVA FILA`);
+    // 🔍 DEBUG: Mostrar opciones de formato disponibles
+    if (valueFormatOptions) {
+      await debugLogger.log(`📋 Opciones de formato disponibles:`);
+      Object.entries(valueFormatOptions).forEach(async ([column, option]) => {
+        await debugLogger.log(`   ${column}: source="${option.source}", format="${option.format}"`);
+      });
+    } else {
+      await debugLogger.log(`⚠️ No hay opciones de formato disponibles`);
+    }
 
     // ✅ FLUJO ÚNICO: Extraer reverseMapping
     let reverseMapping: { [oracleColumn: string]: string } = {};
@@ -1676,27 +1684,69 @@ export class OracleExplorerServiceImpl implements OracleExplorerService {
     // Mapear usando reverseMapping (Oracle Column ← Source)
     for (const oracleColumn of Object.keys(reverseMapping)) {
       const source = reverseMapping[oracleColumn];
-      await debugLogger.logSubSection(`Procesando ${oracleColumn} ← ${source}`);
-
-      if (source === "NULL") {
-        record[oracleColumn] = null;
-        await debugLogger.log(`✅ ${oracleColumn} = NULL`);
+      await debugLogger.logSubSection(`Procesando ${oracleColumn} ← ${source}`);      if (source === "NULL") {
+        // Obtener opciones de formato para NULL
+        const formatOptions = valueFormatOptions?.[oracleColumn];
+        const column = tableStructure.find(col => col.columnName === oracleColumn);
+        
+        if (column) {
+          const processedValue = await this.processValueForColumnWithDebug(
+            null,
+            column,
+            debugLogger,
+            formatOptions
+          );
+          record[oracleColumn] = processedValue;
+          await debugLogger.log(`✅ ${oracleColumn} = NULL (procesado como: ${processedValue})`);
+        } else {
+          record[oracleColumn] = null;
+          await debugLogger.log(`✅ ${oracleColumn} = NULL`);
+        }
       } else if (source === "SYSDATE") {
+        // SYSDATE no necesita formato especial
         record[oracleColumn] = "SYSDATE";
         hasValidData = true;
         await debugLogger.log(`✅ ${oracleColumn} = SYSDATE`);
       } else if (source.startsWith("CUSTOM:")) {
         const customValue = source.replace("CUSTOM:", "");
-        record[oracleColumn] = customValue;
-        if (customValue.trim() !== "") hasValidData = true;
-        await debugLogger.log(`✅ ${oracleColumn} = CUSTOM:${customValue}`);
+        const formatOptions = valueFormatOptions?.[oracleColumn];
+        const column = tableStructure.find(col => col.columnName === oracleColumn);
+        
+        if (column) {
+          const processedValue = await this.processValueForColumnWithDebug(
+            customValue,
+            column,
+            debugLogger,
+            formatOptions
+          );
+          record[oracleColumn] = processedValue;
+          if (processedValue !== null && processedValue !== undefined && processedValue !== "") hasValidData = true;
+          await debugLogger.log(`✅ ${oracleColumn} = CUSTOM:${processedValue} (formato aplicado)`);
+        } else {
+          record[oracleColumn] = customValue;
+          if (customValue.trim() !== "") hasValidData = true;
+          await debugLogger.log(`✅ ${oracleColumn} = CUSTOM:${customValue}`);
+        }
       } else if (source.startsWith("SEQUENCE:")) {
-        const processedValue = this.processSpecialValue(source);
-        record[oracleColumn] = processedValue;
-        hasValidData = true;
-        await debugLogger.log(
-          `✅ ${oracleColumn} = SEQUENCE:${processedValue}`
-        );
+        const sequenceValue = this.processSpecialValue(source);
+        const formatOptions = valueFormatOptions?.[oracleColumn];
+        const column = tableStructure.find(col => col.columnName === oracleColumn);
+        
+        if (column) {
+          const processedValue = await this.processValueForColumnWithDebug(
+            sequenceValue,
+            column,
+            debugLogger,
+            formatOptions
+          );
+          record[oracleColumn] = processedValue;
+          hasValidData = true;
+          await debugLogger.log(`✅ ${oracleColumn} = SEQUENCE:${processedValue} (formato aplicado desde: ${sequenceValue})`);
+        } else {
+          record[oracleColumn] = sequenceValue;
+          hasValidData = true;
+          await debugLogger.log(`✅ ${oracleColumn} = SEQUENCE:${sequenceValue}`);
+        }
       } else {
         // Es un header del archivo
         const headerIndex = headers.findIndex((h) => h === source);

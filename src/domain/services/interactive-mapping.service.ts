@@ -491,10 +491,12 @@ export class InteractiveMappingService {
           if (!confirm) {
             i--; // Volver a preguntar
             continue;
-          }
-        }
+          }        }
         reverseMapping[column.columnName] = "NULL";
         console.log(`🔴 VALOR NULL: ${column.columnName} = NULL`);
+        
+        // 🎯 Preguntar formato para valor NULL
+        await this.selectValueFormat(column, "NULL", valueFormatOptions, true);
       } else if (selectedSource === "sysdate") {
         if (!column.dataType.toUpperCase().includes("DATE")) {
           console.log(
@@ -506,10 +508,12 @@ export class InteractiveMappingService {
           if (!confirm) {
             i--; // Volver a preguntar
             continue;
-          }
-        }
+          }        }
         reverseMapping[column.columnName] = "SYSDATE";
         console.log(`📅 FECHA SISTEMA: ${column.columnName} = SYSDATE`);
+        
+        // 🎯 Preguntar formato para valor especial SYSDATE
+        await this.selectValueFormat(column, "SYSDATE", valueFormatOptions, true);
       } else if (selectedSource === "sequence") {
         const startValue = await this.userInterface.askQuestion(
           "Ingresa el valor inicial de la secuencia (ej: 1):"
@@ -518,25 +522,29 @@ export class InteractiveMappingService {
         if (isNaN(startNumber)) {
           console.log(`❌ Valor inválido, intentar de nuevo...`);
           i--; // Volver a preguntar
-          continue;
-        }
+          continue;        }
         reverseMapping[column.columnName] = `SEQUENCE:${startNumber}`;
         console.log(
           `🔢 SECUENCIA: ${column.columnName} = ${startNumber}, ${
             startNumber + 1
           }, ${startNumber + 2}...`
         );
+        
+        // 🎯 Preguntar formato para secuencia numérica
+        await this.selectValueFormat(column, `SEQUENCE:${startNumber}`, valueFormatOptions, true);
       } else if (selectedSource === "custom") {
         const customValue = await this.userInterface.askQuestion(
           "Ingresa el valor personalizado (se usará tal como lo escribas):"
-        );
-        if (customValue && customValue.trim()) {
+        );        if (customValue && customValue.trim()) {
           reverseMapping[column.columnName] = `CUSTOM:${customValue.trim()}`;
           console.log(
             `✏️ VALOR PERSONALIZADO: ${
               column.columnName
             } = "${customValue.trim()}"`
           );
+          
+          // 🎯 Preguntar formato para valor personalizado
+          await this.selectValueFormat(column, `CUSTOM:${customValue.trim()}`, valueFormatOptions, true);
         } else {
           console.log(`❌ Valor vacío, intentar de nuevo...`);
           i--; // Volver a preguntar
@@ -557,8 +565,8 @@ export class InteractiveMappingService {
         }        reverseMapping[column.columnName] = headerName;
         console.log(`📋 DESDE ARCHIVO: ${column.columnName} ← "${headerName}"`);
 
-        // 🎯 NUEVA FUNCIONALIDAD: Elegir formato de valor (string vs number)
-        await this.selectValueFormat(column, headerName, valueFormatOptions);
+        // 🎯 Para mapeos normales de header NO preguntar formato (usar automático)
+        await this.selectValueFormat(column, headerName, valueFormatOptions, false);
 
         // DEBUG: Mostrar estado actual del reverseMapping
         console.log(`🔍 Estado actual del reverseMapping:`);
@@ -572,6 +580,12 @@ export class InteractiveMappingService {
     mapping["__REVERSE_MAPPING__"] = JSON.stringify(reverseMapping);    console.log("\n🔍 MAPEO FINAL:");
     Object.keys(reverseMapping).forEach((oracleCol) => {
       console.log(`   ${oracleCol} ← ${reverseMapping[oracleCol]}`);
+    });
+
+    console.log("\n🎯 OPCIONES DE FORMATO FINAL:");
+    Object.keys(valueFormatOptions).forEach((oracleCol) => {
+      const option = valueFormatOptions[oracleCol];
+      console.log(`   ${oracleCol}: source="${option.source}", format="${option.format}"`);
     });
 
     return {
@@ -952,30 +966,51 @@ export class InteractiveMappingService {
     const distance = matrix[len1][len2];
     return 1 - distance / maxLength;
   }
-
   /**
    * Permite al usuario elegir el formato del valor (string vs number)
+   * Solo para valores especiales: secuencias, constantes, NULL, SYSDATE, etc.
    */
   private async selectValueFormat(
     column: TableColumn,
-    headerName: string,
-    valueFormatOptions: ValueFormatOptions
+    sourceValue: string, // Puede ser header name o valor especial como "SYSDATE", "SEQUENCE:1", etc.
+    valueFormatOptions: ValueFormatOptions,
+    isSpecialValue: boolean = false // Nuevo parámetro para indicar si es valor especial
   ): Promise<void> {
-    // Solo preguntar por formato si la columna puede ser NUMBER o VARCHAR2
-    const isNumberColumn = column.dataType === 'NUMBER';
-    const isStringColumn = column.dataType.startsWith('VARCHAR2') || column.dataType.startsWith('CHAR');
-    
-    if (!isNumberColumn && !isStringColumn) {
-      // Para otros tipos (DATE, etc.), usar formato automático
+    // Solo preguntar formato para valores especiales (no para mapeos normales de headers)
+    if (!isSpecialValue) {
+      // Para mapeos normales de header, usar formato automático
       valueFormatOptions[column.columnName] = {
-        source: headerName,
+        source: sourceValue,
         format: 'auto'
       };
       return;
-    }    console.log(`\n🎯 FORMATO DE VALOR para ${column.columnName}`);
-    console.log(`   Header: "${headerName}"`);
+    }
+
+    // Solo preguntar para valores especiales que puedan beneficiarse del formato
+    const isNumberColumn = column.dataType === 'NUMBER';
+    const isStringColumn = column.dataType.startsWith('VARCHAR2') || column.dataType.startsWith('CHAR');
+    const isSequence = sourceValue.startsWith('SEQUENCE:');
+    
+    // Para valores especiales que no son numéricos ni strings, usar auto
+    if (!isNumberColumn && !isStringColumn && !isSequence) {
+      valueFormatOptions[column.columnName] = {
+        source: sourceValue,
+        format: 'auto'
+      };
+      return;
+    }
+
+    console.log(`\n🎯 FORMATO DE VALOR ESPECIAL para ${column.columnName}`);
+    console.log(`   Valor: "${sourceValue}"`);
     console.log(`   Tipo Oracle: ${column.dataType}`);
-    console.log(`   ¿Cómo quieres que aparezca este valor en el INSERT?`);
+    
+    if (isSequence) {
+      console.log(`   🔢 Esta es una secuencia numérica`);
+      console.log(`   ¿Cómo quieres que aparezcan los números en el INSERT?`);
+    } else {
+      console.log(`   ⚙️ Este es un valor constante/especial`);
+      console.log(`   ¿Cómo quieres que aparezca este valor en el INSERT?`);
+    }
     
     const formatChoices: SelectOption[] = [
       {
@@ -995,17 +1030,22 @@ export class InteractiveMappingService {
       }
     ];
 
-    const selectedFormat = await this.userInterface.selectOption(formatChoices, false);
-
-    valueFormatOptions[column.columnName] = {
-      source: headerName,
+    const selectedFormat = await this.userInterface.selectOption(formatChoices, false);    valueFormatOptions[column.columnName] = {
+      source: sourceValue,
       format: selectedFormat as 'string' | 'number' | 'auto'
     };
 
+    // DEBUG: Confirmar que se almacenó
+    console.log(`🔍 DEBUG: Opción almacenada para ${column.columnName}:`);
+    console.log(`   source: "${valueFormatOptions[column.columnName].source}"`);
+    console.log(`   format: "${valueFormatOptions[column.columnName].format}"`);
+
     // Mostrar feedback al usuario
-    const example = selectedFormat === 'string' ? "'1234'" : 
-                   selectedFormat === 'number' ? "1234" : 
-                   "auto (depende del tipo)";
+    const example = selectedFormat === 'string' ? 
+      (isSequence ? "'1', '2', '3'..." : `'${sourceValue}'`) : 
+      selectedFormat === 'number' ? 
+        (isSequence ? "1, 2, 3..." : sourceValue) : 
+        "auto (depende del tipo)";
     
     console.log(`✅ Formato elegido: ${example}`);
   }
